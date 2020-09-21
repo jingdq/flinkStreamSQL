@@ -1,0 +1,1050 @@
+2020-09-21 17:48:28,720 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 17:48:28,721 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 17:48:28,721 INFO  Loading configuration property: jobmanager.memory.process.size, 1600m 
+2020-09-21 17:48:28,721 INFO  Loading configuration property: taskmanager.memory.process.size, 1728m 
+2020-09-21 17:48:28,721 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 4 
+2020-09-21 17:48:28,721 INFO  Loading configuration property: parallelism.default, 1 
+2020-09-21 17:48:28,721 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 17:48:29,535 INFO  ------------program params------------------------- 
+2020-09-21 17:48:29,535 INFO  -mode 
+2020-09-21 17:48:29,535 INFO  yarnPer 
+2020-09-21 17:48:29,535 INFO  -name 
+2020-09-21 17:48:29,535 INFO  mysql2mysqlTest 
+2020-09-21 17:48:29,535 INFO  -sql 
+2020-09-21 17:48:29,536 INFO  ++CREATE+TABLE+kfkTable%28%0A++++id+int%2C%0A++++name+varchar%0A+%29WITH%28%0A++++type+%3D%27kafka09%27%2C%0A++++bootstrapServers+%3D%27localhost%3A9092%27%2C%0A++++zookeeperQuorum+%3D%27localhost%3A2181%2Fkafka%27%2C%0A++++offsetReset+%3D%27latest%27%2C%0A++++topic+%3D%27test%27%2C%0A++++groupId%3D%27test%27%2C%0A++++parallelism+%3D%271%27%2C%0A++++timezone%3D%27Asia%2FShanghai%27%2C%0A++++sourcedatatype+%3D%27dt_nest%27%0A+%29%3B%0A%0A%0A++CREATE+TABLE+MyResult%28%0A++++id+int%2C%0A++++name+VARCHAR%0A+%29WITH%28%0A++++type+%3D%27mysql%27%2C%0A++++url+%3D%27jdbc%3Amysql%3A%2F%2Flocalhost%3A3306%2Ftest%27%2C%0A++++userName+%3D%27root%27%2C%0A++++password+%3D%2712345678%27%2C%0A++++tableName+%3D%27student1%27%2C%0A++++parallelism+%3D%271%27%0A+%29%3B%0A%0Ainsert%0Ainto%0A++++MyResult%0A++++select%0A++++++++id%2C%0A++++++++name%0A++++from%0A++++++++kfkTable%3B 
+2020-09-21 17:48:29,536 INFO  -flinkconf 
+2020-09-21 17:48:29,536 INFO  /Users/jingdongqi/opt/module/flink-1.11.2/conf 
+2020-09-21 17:48:29,536 INFO  -yarnconf 
+2020-09-21 17:48:29,536 INFO  /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 17:48:29,536 INFO  -localSqlPluginPath 
+2020-09-21 17:48:29,536 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 17:48:29,536 INFO  -remoteSqlPluginPath 
+2020-09-21 17:48:29,536 INFO  /Users/jingdongqi/Github/flinkStreamSQL/remotesqlplugins 
+2020-09-21 17:48:29,536 INFO  -confProp 
+2020-09-21 17:48:29,536 INFO  {"time.characteristic":"eventTime","logLevel":"info"} 
+2020-09-21 17:48:29,536 INFO  -flinkJarPath 
+2020-09-21 17:48:29,536 INFO  /Users/jingdongqi/opt/module/flink-1.11.2/lib 
+2020-09-21 17:48:29,536 INFO  -queue 
+2020-09-21 17:48:29,536 INFO  yarnPer 
+2020-09-21 17:48:29,536 INFO  -yarnSessionConf 
+2020-09-21 17:48:29,536 INFO  {} 
+2020-09-21 17:48:29,536 INFO  -pluginLoadMode 
+2020-09-21 17:48:29,536 INFO  shipfile 
+2020-09-21 17:48:29,536 INFO  ------------------------------------------- 
+2020-09-21 17:48:29,845 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/kafka09source create ClassLoad successful... 
+2020-09-21 17:48:29,855 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/mysqlsink create ClassLoad successful... 
+2020-09-21 17:48:29,898 INFO  class org.apache.flink.types.Row does not contain a getter for field fields 
+2020-09-21 17:48:29,898 INFO  class org.apache.flink.types.Row does not contain a setter for field fields 
+2020-09-21 17:48:29,898 INFO  Class class org.apache.flink.types.Row cannot be used as a POJO type because not all fields are valid POJO fields, and must be processed as GenericType. Please read the Flink documentation on "Data Types & Serialization" for details of the effect on performance. 
+2020-09-21 17:48:31,122 INFO  registe table kfkTable success. 
+2020-09-21 17:48:31,135 INFO  exe-sql:
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 17:48:31,135 INFO  ----------exec sql without dimension join----------- 
+2020-09-21 17:48:31,135 INFO  ----------real sql exec is--------------------------
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 17:48:31,421 INFO  exec sql: INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 17:48:31,541 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 17:48:31,541 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 17:48:31,541 INFO  Loading configuration property: jobmanager.memory.process.size, 1600m 
+2020-09-21 17:48:31,541 INFO  Loading configuration property: taskmanager.memory.process.size, 1728m 
+2020-09-21 17:48:31,541 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 4 
+2020-09-21 17:48:31,541 INFO  Loading configuration property: parallelism.default, 1 
+2020-09-21 17:48:31,541 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 17:48:31,543 WARN  The configuration directory ('/Users/jingdongqi/opt/module/flink-1.11.2/conf') already contains a LOG4J config file.If you want to use logback, then please delete or rename the log configuration file. 
+2020-09-21 17:48:31,819 WARN  Unable to load native-hadoop library for your platform... using builtin-java classes where applicable 
+2020-09-21 17:48:31,934 INFO  Hadoop user set to jingdongqi (auth:SIMPLE) 
+2020-09-21 17:48:31,942 INFO  Jaas file will be created as /var/folders/xc/48rrrdlx7p7422qrt9b8gs6h0000gn/T/jaas-5232102874598795126.conf. 
+2020-09-21 17:48:32,046 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 17:48:32,187 INFO  No path for the flink jar passed. Using the location of class org.apache.flink.yarn.YarnClusterDescriptor to locate the jar 
+2020-09-21 17:48:32,200 INFO  The derived from fraction jvm overhead memory (172.800mb (181193935 bytes)) is less than its min value 192.000mb (201326592 bytes), min value will be used instead 
+2020-09-21 17:48:32,327 WARN  The specified queue 'yarnPer' does not exist. Available queues: default,  
+2020-09-21 17:48:32,420 INFO  Cluster specification: ClusterSpecification{masterMemoryMB=1024, taskManagerMemoryMB=1728, slotsPerTaskManager=4} 
+2020-09-21 17:48:32,425 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 17:48:32,867 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 17:48:36,263 INFO  Submitting application master application_1600681563761_0002 
+Exception in thread "main" org.apache.flink.client.deployment.ClusterDeploymentException: Could not deploy Yarn job cluster.
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:397)
+	at com.dtstack.flink.sql.launcher.executor.YarnJobClusterExecutor.exec(YarnJobClusterExecutor.java:89)
+	at com.dtstack.flink.sql.launcher.LauncherMain.main(LauncherMain.java:146)
+Caused by: org.apache.hadoop.yarn.exceptions.YarnException: Failed to submit application_1600681563761_0002 to YARN : Application application_1600681563761_0002 submitted by user jingdongqi to unknown queue: yarnPer
+	at org.apache.hadoop.yarn.client.api.impl.YarnClientImpl.submitApplication(YarnClientImpl.java:271)
+	at org.apache.flink.yarn.YarnClusterDescriptor.startAppMaster(YarnClusterDescriptor.java:980)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployInternal(YarnClusterDescriptor.java:488)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:390)
+	... 2 more
+2020-09-21 17:48:36,293 INFO  Cancelling deployment from Deployment Failure Hook 
+2020-09-21 17:48:36,294 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 17:48:36,294 INFO  Killing YARN application 
+2020-09-21 17:48:36,303 INFO  Killed application application_1600681563761_0002 
+2020-09-21 17:48:36,303 INFO  Deleting files in hdfs://localhost:8020/user/jingdongqi/.flink/application_1600681563761_0002. 
+2020-09-21 17:51:53,049 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 17:51:53,049 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 17:51:53,049 INFO  Loading configuration property: jobmanager.memory.process.size, 1600m 
+2020-09-21 17:51:53,049 INFO  Loading configuration property: taskmanager.memory.process.size, 1728m 
+2020-09-21 17:51:53,049 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 4 
+2020-09-21 17:51:53,050 INFO  Loading configuration property: parallelism.default, 1 
+2020-09-21 17:51:53,050 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 17:51:53,582 INFO  ------------program params------------------------- 
+2020-09-21 17:51:53,582 INFO  -mode 
+2020-09-21 17:51:53,582 INFO  yarnPer 
+2020-09-21 17:51:53,582 INFO  -name 
+2020-09-21 17:51:53,582 INFO  mysql2mysqlTest 
+2020-09-21 17:51:53,582 INFO  -sql 
+2020-09-21 17:51:53,582 INFO  ++CREATE+TABLE+kfkTable%28%0A++++id+int%2C%0A++++name+varchar%0A+%29WITH%28%0A++++type+%3D%27kafka09%27%2C%0A++++bootstrapServers+%3D%27localhost%3A9092%27%2C%0A++++zookeeperQuorum+%3D%27localhost%3A2181%2Fkafka%27%2C%0A++++offsetReset+%3D%27latest%27%2C%0A++++topic+%3D%27test%27%2C%0A++++groupId%3D%27test%27%2C%0A++++parallelism+%3D%271%27%2C%0A++++timezone%3D%27Asia%2FShanghai%27%2C%0A++++sourcedatatype+%3D%27dt_nest%27%0A+%29%3B%0A%0A%0A++CREATE+TABLE+MyResult%28%0A++++id+int%2C%0A++++name+VARCHAR%0A+%29WITH%28%0A++++type+%3D%27mysql%27%2C%0A++++url+%3D%27jdbc%3Amysql%3A%2F%2Flocalhost%3A3306%2Ftest%27%2C%0A++++userName+%3D%27root%27%2C%0A++++password+%3D%2712345678%27%2C%0A++++tableName+%3D%27student1%27%2C%0A++++parallelism+%3D%271%27%0A+%29%3B%0A%0Ainsert%0Ainto%0A++++MyResult%0A++++select%0A++++++++id%2C%0A++++++++name%0A++++from%0A++++++++kfkTable%3B 
+2020-09-21 17:51:53,582 INFO  -flinkconf 
+2020-09-21 17:51:53,583 INFO  /Users/jingdongqi/opt/module/flink-1.11.2/conf 
+2020-09-21 17:51:53,583 INFO  -yarnconf 
+2020-09-21 17:51:53,583 INFO  /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 17:51:53,583 INFO  -localSqlPluginPath 
+2020-09-21 17:51:53,583 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 17:51:53,583 INFO  -remoteSqlPluginPath 
+2020-09-21 17:51:53,583 INFO  /Users/jingdongqi/Github/flinkStreamSQL/remotesqlplugins 
+2020-09-21 17:51:53,583 INFO  -confProp 
+2020-09-21 17:51:53,583 INFO  {"time.characteristic":"eventTime","logLevel":"info"} 
+2020-09-21 17:51:53,583 INFO  -flinkJarPath 
+2020-09-21 17:51:53,583 INFO  /Users/jingdongqi/opt/module/flink-1.11.2/lib 
+2020-09-21 17:51:53,583 INFO  -queue 
+2020-09-21 17:51:53,583 INFO  yarnPer 
+2020-09-21 17:51:53,583 INFO  -yarnSessionConf 
+2020-09-21 17:51:53,583 INFO  {} 
+2020-09-21 17:51:53,583 INFO  -pluginLoadMode 
+2020-09-21 17:51:53,583 INFO  shipfile 
+2020-09-21 17:51:53,583 INFO  ------------------------------------------- 
+2020-09-21 17:51:53,785 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/kafka09source create ClassLoad successful... 
+2020-09-21 17:51:53,793 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/mysqlsink create ClassLoad successful... 
+2020-09-21 17:51:53,827 INFO  class org.apache.flink.types.Row does not contain a getter for field fields 
+2020-09-21 17:51:53,827 INFO  class org.apache.flink.types.Row does not contain a setter for field fields 
+2020-09-21 17:51:53,827 INFO  Class class org.apache.flink.types.Row cannot be used as a POJO type because not all fields are valid POJO fields, and must be processed as GenericType. Please read the Flink documentation on "Data Types & Serialization" for details of the effect on performance. 
+2020-09-21 17:51:54,983 INFO  registe table kfkTable success. 
+2020-09-21 17:51:54,996 INFO  exe-sql:
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 17:51:54,997 INFO  ----------exec sql without dimension join----------- 
+2020-09-21 17:51:54,997 INFO  ----------real sql exec is--------------------------
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 17:51:55,359 INFO  exec sql: INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 17:51:55,453 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 17:51:55,453 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 17:51:55,453 INFO  Loading configuration property: jobmanager.memory.process.size, 1600m 
+2020-09-21 17:51:55,453 INFO  Loading configuration property: taskmanager.memory.process.size, 1728m 
+2020-09-21 17:51:55,453 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 4 
+2020-09-21 17:51:55,453 INFO  Loading configuration property: parallelism.default, 1 
+2020-09-21 17:51:55,453 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 17:51:55,455 WARN  The configuration directory ('/Users/jingdongqi/opt/module/flink-1.11.2/conf') already contains a LOG4J config file.If you want to use logback, then please delete or rename the log configuration file. 
+2020-09-21 17:51:55,690 WARN  Unable to load native-hadoop library for your platform... using builtin-java classes where applicable 
+2020-09-21 17:51:55,776 INFO  Hadoop user set to jingdongqi (auth:SIMPLE) 
+2020-09-21 17:51:55,780 INFO  Jaas file will be created as /var/folders/xc/48rrrdlx7p7422qrt9b8gs6h0000gn/T/jaas-5647928212974995613.conf. 
+2020-09-21 17:51:55,843 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 17:51:55,940 INFO  No path for the flink jar passed. Using the location of class org.apache.flink.yarn.YarnClusterDescriptor to locate the jar 
+2020-09-21 17:51:55,949 INFO  The derived from fraction jvm overhead memory (172.800mb (181193935 bytes)) is less than its min value 192.000mb (201326592 bytes), min value will be used instead 
+2020-09-21 17:51:56,040 WARN  The specified queue 'yarnPer' does not exist. Available queues: default,  
+2020-09-21 17:51:56,122 INFO  Cluster specification: ClusterSpecification{masterMemoryMB=1024, taskManagerMemoryMB=1728, slotsPerTaskManager=4} 
+2020-09-21 17:51:56,124 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 17:51:56,440 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 17:51:58,824 INFO  Submitting application master application_1600681563761_0003 
+Exception in thread "main" org.apache.flink.client.deployment.ClusterDeploymentException: Could not deploy Yarn job cluster.
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:397)
+	at com.dtstack.flink.sql.launcher.executor.YarnJobClusterExecutor.exec(YarnJobClusterExecutor.java:89)
+	at com.dtstack.flink.sql.launcher.LauncherMain.main(LauncherMain.java:146)
+Caused by: org.apache.hadoop.yarn.exceptions.YarnException: Failed to submit application_1600681563761_0003 to YARN : Application application_1600681563761_0003 submitted by user jingdongqi to unknown queue: yarnPer
+	at org.apache.hadoop.yarn.client.api.impl.YarnClientImpl.submitApplication(YarnClientImpl.java:271)
+	at org.apache.flink.yarn.YarnClusterDescriptor.startAppMaster(YarnClusterDescriptor.java:980)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployInternal(YarnClusterDescriptor.java:488)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:390)
+	... 2 more
+2020-09-21 17:51:58,844 INFO  Cancelling deployment from Deployment Failure Hook 
+2020-09-21 17:51:58,845 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 17:51:58,845 INFO  Killing YARN application 
+2020-09-21 17:51:58,848 INFO  Killed application application_1600681563761_0003 
+2020-09-21 17:51:58,848 INFO  Deleting files in hdfs://localhost:8020/user/jingdongqi/.flink/application_1600681563761_0003. 
+2020-09-21 17:55:46,616 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 17:55:46,616 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 17:55:46,616 INFO  Loading configuration property: jobmanager.memory.process.size, 1600m 
+2020-09-21 17:55:46,616 INFO  Loading configuration property: taskmanager.memory.process.size, 1728m 
+2020-09-21 17:55:46,616 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 4 
+2020-09-21 17:55:46,616 INFO  Loading configuration property: parallelism.default, 1 
+2020-09-21 17:55:46,617 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 17:55:47,146 INFO  ------------program params------------------------- 
+2020-09-21 17:55:47,146 INFO  -mode 
+2020-09-21 17:55:47,147 INFO  yarnPer 
+2020-09-21 17:55:47,147 INFO  -name 
+2020-09-21 17:55:47,147 INFO  mysql2mysqlTest 
+2020-09-21 17:55:47,147 INFO  -sql 
+2020-09-21 17:55:47,147 INFO  ++CREATE+TABLE+kfkTable%28%0A++++id+int%2C%0A++++name+varchar%0A+%29WITH%28%0A++++type+%3D%27kafka09%27%2C%0A++++bootstrapServers+%3D%27localhost%3A9092%27%2C%0A++++zookeeperQuorum+%3D%27localhost%3A2181%2Fkafka%27%2C%0A++++offsetReset+%3D%27latest%27%2C%0A++++topic+%3D%27test%27%2C%0A++++groupId%3D%27test%27%2C%0A++++parallelism+%3D%271%27%2C%0A++++timezone%3D%27Asia%2FShanghai%27%2C%0A++++sourcedatatype+%3D%27dt_nest%27%0A+%29%3B%0A%0A%0A++CREATE+TABLE+MyResult%28%0A++++id+int%2C%0A++++name+VARCHAR%0A+%29WITH%28%0A++++type+%3D%27mysql%27%2C%0A++++url+%3D%27jdbc%3Amysql%3A%2F%2Flocalhost%3A3306%2Ftest%27%2C%0A++++userName+%3D%27root%27%2C%0A++++password+%3D%2712345678%27%2C%0A++++tableName+%3D%27student1%27%2C%0A++++parallelism+%3D%271%27%0A+%29%3B%0A%0Ainsert%0Ainto%0A++++MyResult%0A++++select%0A++++++++id%2C%0A++++++++name%0A++++from%0A++++++++kfkTable%3B 
+2020-09-21 17:55:47,147 INFO  -flinkconf 
+2020-09-21 17:55:47,147 INFO  /Users/jingdongqi/opt/module/flink-1.11.2/conf 
+2020-09-21 17:55:47,147 INFO  -yarnconf 
+2020-09-21 17:55:47,147 INFO  /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 17:55:47,147 INFO  -localSqlPluginPath 
+2020-09-21 17:55:47,147 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 17:55:47,147 INFO  -remoteSqlPluginPath 
+2020-09-21 17:55:47,147 INFO  /Users/jingdongqi/Github/flinkStreamSQL/remotesqlplugins 
+2020-09-21 17:55:47,147 INFO  -confProp 
+2020-09-21 17:55:47,147 INFO  {"time.characteristic":"eventTime","logLevel":"info"} 
+2020-09-21 17:55:47,147 INFO  -flinkJarPath 
+2020-09-21 17:55:47,147 INFO  /Users/jingdongqi/opt/module/flink-1.11.2/lib 
+2020-09-21 17:55:47,147 INFO  -queue 
+2020-09-21 17:55:47,147 INFO  default 
+2020-09-21 17:55:47,147 INFO  -yarnSessionConf 
+2020-09-21 17:55:47,147 INFO  {} 
+2020-09-21 17:55:47,147 INFO  -pluginLoadMode 
+2020-09-21 17:55:47,147 INFO  shipfile 
+2020-09-21 17:55:47,147 INFO  ------------------------------------------- 
+2020-09-21 17:55:47,353 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/kafka09source create ClassLoad successful... 
+2020-09-21 17:55:47,361 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/mysqlsink create ClassLoad successful... 
+2020-09-21 17:55:47,396 INFO  class org.apache.flink.types.Row does not contain a getter for field fields 
+2020-09-21 17:55:47,396 INFO  class org.apache.flink.types.Row does not contain a setter for field fields 
+2020-09-21 17:55:47,396 INFO  Class class org.apache.flink.types.Row cannot be used as a POJO type because not all fields are valid POJO fields, and must be processed as GenericType. Please read the Flink documentation on "Data Types & Serialization" for details of the effect on performance. 
+2020-09-21 17:55:48,700 INFO  registe table kfkTable success. 
+2020-09-21 17:55:48,710 INFO  exe-sql:
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 17:55:48,710 INFO  ----------exec sql without dimension join----------- 
+2020-09-21 17:55:48,710 INFO  ----------real sql exec is--------------------------
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 17:55:48,979 INFO  exec sql: INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 17:55:49,073 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 17:55:49,073 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 17:55:49,073 INFO  Loading configuration property: jobmanager.memory.process.size, 1600m 
+2020-09-21 17:55:49,073 INFO  Loading configuration property: taskmanager.memory.process.size, 1728m 
+2020-09-21 17:55:49,073 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 4 
+2020-09-21 17:55:49,073 INFO  Loading configuration property: parallelism.default, 1 
+2020-09-21 17:55:49,074 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 17:55:49,075 WARN  The configuration directory ('/Users/jingdongqi/opt/module/flink-1.11.2/conf') already contains a LOG4J config file.If you want to use logback, then please delete or rename the log configuration file. 
+2020-09-21 17:55:49,436 WARN  Unable to load native-hadoop library for your platform... using builtin-java classes where applicable 
+2020-09-21 17:55:49,537 INFO  Hadoop user set to jingdongqi (auth:SIMPLE) 
+2020-09-21 17:55:49,541 INFO  Jaas file will be created as /var/folders/xc/48rrrdlx7p7422qrt9b8gs6h0000gn/T/jaas-7320897132143308399.conf. 
+2020-09-21 17:55:49,603 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 17:55:49,704 INFO  No path for the flink jar passed. Using the location of class org.apache.flink.yarn.YarnClusterDescriptor to locate the jar 
+2020-09-21 17:55:49,713 INFO  The derived from fraction jvm overhead memory (172.800mb (181193935 bytes)) is less than its min value 192.000mb (201326592 bytes), min value will be used instead 
+2020-09-21 17:55:49,884 INFO  Cluster specification: ClusterSpecification{masterMemoryMB=1024, taskManagerMemoryMB=1728, slotsPerTaskManager=4} 
+2020-09-21 17:55:49,890 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 17:55:50,293 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 17:55:54,467 INFO  Submitting application master application_1600681563761_0004 
+2020-09-21 17:55:54,487 INFO  Submitted application application_1600681563761_0004 
+2020-09-21 17:55:54,487 INFO  Waiting for the cluster to be allocated 
+2020-09-21 17:55:54,489 INFO  Deploying cluster, current state ACCEPTED 
+Exception in thread "main" org.apache.flink.client.deployment.ClusterDeploymentException: Could not deploy Yarn job cluster.
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:397)
+	at com.dtstack.flink.sql.launcher.executor.YarnJobClusterExecutor.exec(YarnJobClusterExecutor.java:89)
+	at com.dtstack.flink.sql.launcher.LauncherMain.main(LauncherMain.java:146)
+Caused by: org.apache.flink.yarn.YarnClusterDescriptor$YarnDeploymentException: The YARN application unexpectedly switched to state FAILED during deployment. 
+Diagnostics from YARN: Application application_1600681563761_0004 failed 1 times (global limit =2; local limit is =1) due to AM Container for appattempt_1600681563761_0004_000001 exited with  exitCode: 2
+Failing this attempt.Diagnostics: [2020-09-21 17:55:58.664]Exception from container-launch.
+Container id: container_1600681563761_0004_01_000001
+Exit code: 2
+
+[2020-09-21 17:55:58.702]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+[2020-09-21 17:55:58.702]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+For more detailed output, check the application tracking page: http://localhost:8088/cluster/app/application_1600681563761_0004 Then click on links to logs of each attempt.
+. Failing the application.
+If log aggregation is enabled on your cluster, use this command to further investigate the issue:
+yarn logs -applicationId application_1600681563761_0004
+	at org.apache.flink.yarn.YarnClusterDescriptor.startAppMaster(YarnClusterDescriptor.java:999)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployInternal(YarnClusterDescriptor.java:488)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:390)
+	... 2 more
+2020-09-21 17:55:58,798 INFO  Cancelling deployment from Deployment Failure Hook 
+2020-09-21 17:55:58,799 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 17:55:58,799 INFO  Killing YARN application 
+2020-09-21 17:55:58,803 INFO  Killed application application_1600681563761_0004 
+2020-09-21 17:55:58,803 INFO  Deleting files in hdfs://localhost:8020/user/jingdongqi/.flink/application_1600681563761_0004. 
+2020-09-21 17:58:26,973 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 17:58:26,974 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 17:58:26,974 INFO  Loading configuration property: jobmanager.memory.process.size, 1600m 
+2020-09-21 17:58:26,974 INFO  Loading configuration property: taskmanager.memory.process.size, 1728m 
+2020-09-21 17:58:26,975 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 4 
+2020-09-21 17:58:26,975 INFO  Loading configuration property: parallelism.default, 1 
+2020-09-21 17:58:26,975 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 17:58:27,791 INFO  ------------program params------------------------- 
+2020-09-21 17:58:27,791 INFO  -mode 
+2020-09-21 17:58:27,791 INFO  yarnPer 
+2020-09-21 17:58:27,791 INFO  -name 
+2020-09-21 17:58:27,792 INFO  mysql2mysqlTest 
+2020-09-21 17:58:27,792 INFO  -sql 
+2020-09-21 17:58:27,792 INFO  ++CREATE+TABLE+kfkTable%28%0A++++id+int%2C%0A++++name+varchar%0A+%29WITH%28%0A++++type+%3D%27kafka09%27%2C%0A++++bootstrapServers+%3D%27localhost%3A9092%27%2C%0A++++zookeeperQuorum+%3D%27localhost%3A2181%2Fkafka%27%2C%0A++++offsetReset+%3D%27latest%27%2C%0A++++topic+%3D%27test%27%2C%0A++++groupId%3D%27test%27%2C%0A++++parallelism+%3D%271%27%2C%0A++++timezone%3D%27Asia%2FShanghai%27%2C%0A++++sourcedatatype+%3D%27dt_nest%27%0A+%29%3B%0A%0A%0A++CREATE+TABLE+MyResult%28%0A++++id+int%2C%0A++++name+VARCHAR%0A+%29WITH%28%0A++++type+%3D%27mysql%27%2C%0A++++url+%3D%27jdbc%3Amysql%3A%2F%2Flocalhost%3A3306%2Ftest%27%2C%0A++++userName+%3D%27root%27%2C%0A++++password+%3D%2712345678%27%2C%0A++++tableName+%3D%27student1%27%2C%0A++++parallelism+%3D%271%27%0A+%29%3B%0A%0Ainsert%0Ainto%0A++++MyResult%0A++++select%0A++++++++id%2C%0A++++++++name%0A++++from%0A++++++++kfkTable%3B 
+2020-09-21 17:58:27,792 INFO  -flinkconf 
+2020-09-21 17:58:27,792 INFO  /Users/jingdongqi/opt/module/flink-1.11.2/conf 
+2020-09-21 17:58:27,792 INFO  -yarnconf 
+2020-09-21 17:58:27,792 INFO  /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 17:58:27,792 INFO  -localSqlPluginPath 
+2020-09-21 17:58:27,792 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 17:58:27,792 INFO  -remoteSqlPluginPath 
+2020-09-21 17:58:27,792 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 17:58:27,792 INFO  -confProp 
+2020-09-21 17:58:27,792 INFO  {"time.characteristic":"eventTime","logLevel":"info"} 
+2020-09-21 17:58:27,792 INFO  -flinkJarPath 
+2020-09-21 17:58:27,792 INFO  /Users/jingdongqi/opt/module/flink-1.11.2/lib 
+2020-09-21 17:58:27,792 INFO  -queue 
+2020-09-21 17:58:27,792 INFO  default 
+2020-09-21 17:58:27,792 INFO  -yarnSessionConf 
+2020-09-21 17:58:27,792 INFO  {} 
+2020-09-21 17:58:27,792 INFO  -pluginLoadMode 
+2020-09-21 17:58:27,792 INFO  shipfile 
+2020-09-21 17:58:27,792 INFO  ------------------------------------------- 
+2020-09-21 17:58:28,061 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/kafka09source create ClassLoad successful... 
+2020-09-21 17:58:28,070 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/mysqlsink create ClassLoad successful... 
+2020-09-21 17:58:28,118 INFO  class org.apache.flink.types.Row does not contain a getter for field fields 
+2020-09-21 17:58:28,118 INFO  class org.apache.flink.types.Row does not contain a setter for field fields 
+2020-09-21 17:58:28,118 INFO  Class class org.apache.flink.types.Row cannot be used as a POJO type because not all fields are valid POJO fields, and must be processed as GenericType. Please read the Flink documentation on "Data Types & Serialization" for details of the effect on performance. 
+2020-09-21 17:58:29,222 INFO  registe table kfkTable success. 
+2020-09-21 17:58:29,233 INFO  exe-sql:
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 17:58:29,233 INFO  ----------exec sql without dimension join----------- 
+2020-09-21 17:58:29,233 INFO  ----------real sql exec is--------------------------
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 17:58:29,524 INFO  exec sql: INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 17:58:29,641 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 17:58:29,641 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 17:58:29,641 INFO  Loading configuration property: jobmanager.memory.process.size, 1600m 
+2020-09-21 17:58:29,641 INFO  Loading configuration property: taskmanager.memory.process.size, 1728m 
+2020-09-21 17:58:29,641 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 4 
+2020-09-21 17:58:29,641 INFO  Loading configuration property: parallelism.default, 1 
+2020-09-21 17:58:29,641 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 17:58:29,643 WARN  The configuration directory ('/Users/jingdongqi/opt/module/flink-1.11.2/conf') already contains a LOG4J config file.If you want to use logback, then please delete or rename the log configuration file. 
+2020-09-21 17:58:29,951 WARN  Unable to load native-hadoop library for your platform... using builtin-java classes where applicable 
+2020-09-21 17:58:30,048 INFO  Hadoop user set to jingdongqi (auth:SIMPLE) 
+2020-09-21 17:58:30,052 INFO  Jaas file will be created as /var/folders/xc/48rrrdlx7p7422qrt9b8gs6h0000gn/T/jaas-6661509524402287829.conf. 
+2020-09-21 17:58:30,121 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 17:58:30,250 INFO  No path for the flink jar passed. Using the location of class org.apache.flink.yarn.YarnClusterDescriptor to locate the jar 
+2020-09-21 17:58:30,261 INFO  The derived from fraction jvm overhead memory (172.800mb (181193935 bytes)) is less than its min value 192.000mb (201326592 bytes), min value will be used instead 
+2020-09-21 17:58:30,535 INFO  Cluster specification: ClusterSpecification{masterMemoryMB=1024, taskManagerMemoryMB=1728, slotsPerTaskManager=4} 
+2020-09-21 17:58:30,541 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 17:58:31,111 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 17:58:34,031 INFO  Submitting application master application_1600681563761_0005 
+2020-09-21 17:58:34,053 INFO  Submitted application application_1600681563761_0005 
+2020-09-21 17:58:34,054 INFO  Waiting for the cluster to be allocated 
+2020-09-21 17:58:34,055 INFO  Deploying cluster, current state ACCEPTED 
+Exception in thread "main" org.apache.flink.client.deployment.ClusterDeploymentException: Could not deploy Yarn job cluster.
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:397)
+	at com.dtstack.flink.sql.launcher.executor.YarnJobClusterExecutor.exec(YarnJobClusterExecutor.java:89)
+	at com.dtstack.flink.sql.launcher.LauncherMain.main(LauncherMain.java:146)
+Caused by: org.apache.flink.yarn.YarnClusterDescriptor$YarnDeploymentException: The YARN application unexpectedly switched to state FAILED during deployment. 
+Diagnostics from YARN: Application application_1600681563761_0005 failed 1 times (global limit =2; local limit is =1) due to AM Container for appattempt_1600681563761_0005_000001 exited with  exitCode: 2
+Failing this attempt.Diagnostics: [2020-09-21 17:58:38.294]Exception from container-launch.
+Container id: container_1600681563761_0005_01_000001
+Exit code: 2
+
+[2020-09-21 17:58:38.296]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+[2020-09-21 17:58:38.297]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+For more detailed output, check the application tracking page: http://localhost:8088/cluster/app/application_1600681563761_0005 Then click on links to logs of each attempt.
+. Failing the application.
+If log aggregation is enabled on your cluster, use this command to further investigate the issue:
+yarn logs -applicationId application_1600681563761_0005
+	at org.apache.flink.yarn.YarnClusterDescriptor.startAppMaster(YarnClusterDescriptor.java:999)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployInternal(YarnClusterDescriptor.java:488)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:390)
+	... 2 more
+2020-09-21 17:58:38,368 INFO  Cancelling deployment from Deployment Failure Hook 
+2020-09-21 17:58:38,368 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 17:58:38,369 INFO  Killing YARN application 
+2020-09-21 17:58:38,373 INFO  Killed application application_1600681563761_0005 
+2020-09-21 17:58:38,374 INFO  Deleting files in hdfs://localhost:8020/user/jingdongqi/.flink/application_1600681563761_0005. 
+2020-09-21 18:01:48,691 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 18:01:48,691 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 18:01:48,691 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 18:01:48,692 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 18:01:48,692 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 18:01:48,692 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 18:01:48,692 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 18:01:48,692 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 18:01:49,253 INFO  ------------program params------------------------- 
+2020-09-21 18:01:49,253 INFO  -mode 
+2020-09-21 18:01:49,253 INFO  yarnPer 
+2020-09-21 18:01:49,253 INFO  -name 
+2020-09-21 18:01:49,254 INFO  mysql2mysqlTest 
+2020-09-21 18:01:49,254 INFO  -sql 
+2020-09-21 18:01:49,254 INFO  ++CREATE+TABLE+kfkTable%28%0A++++id+int%2C%0A++++name+varchar%0A+%29WITH%28%0A++++type+%3D%27kafka09%27%2C%0A++++bootstrapServers+%3D%27localhost%3A9092%27%2C%0A++++zookeeperQuorum+%3D%27localhost%3A2181%2Fkafka%27%2C%0A++++offsetReset+%3D%27latest%27%2C%0A++++topic+%3D%27test%27%2C%0A++++groupId%3D%27test%27%2C%0A++++parallelism+%3D%271%27%2C%0A++++timezone%3D%27Asia%2FShanghai%27%2C%0A++++sourcedatatype+%3D%27dt_nest%27%0A+%29%3B%0A%0A%0A++CREATE+TABLE+MyResult%28%0A++++id+int%2C%0A++++name+VARCHAR%0A+%29WITH%28%0A++++type+%3D%27mysql%27%2C%0A++++url+%3D%27jdbc%3Amysql%3A%2F%2Flocalhost%3A3306%2Ftest%27%2C%0A++++userName+%3D%27root%27%2C%0A++++password+%3D%2712345678%27%2C%0A++++tableName+%3D%27student1%27%2C%0A++++parallelism+%3D%271%27%0A+%29%3B%0A%0Ainsert%0Ainto%0A++++MyResult%0A++++select%0A++++++++id%2C%0A++++++++name%0A++++from%0A++++++++kfkTable%3B 
+2020-09-21 18:01:49,254 INFO  -flinkconf 
+2020-09-21 18:01:49,254 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/conf 
+2020-09-21 18:01:49,254 INFO  -yarnconf 
+2020-09-21 18:01:49,254 INFO  /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 18:01:49,254 INFO  -localSqlPluginPath 
+2020-09-21 18:01:49,254 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 18:01:49,254 INFO  -remoteSqlPluginPath 
+2020-09-21 18:01:49,254 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 18:01:49,254 INFO  -confProp 
+2020-09-21 18:01:49,254 INFO  {"time.characteristic":"eventTime","logLevel":"info"} 
+2020-09-21 18:01:49,254 INFO  -flinkJarPath 
+2020-09-21 18:01:49,254 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/lib 
+2020-09-21 18:01:49,254 INFO  -queue 
+2020-09-21 18:01:49,254 INFO  default 
+2020-09-21 18:01:49,254 INFO  -yarnSessionConf 
+2020-09-21 18:01:49,254 INFO  {} 
+2020-09-21 18:01:49,254 INFO  -pluginLoadMode 
+2020-09-21 18:01:49,254 INFO  shipfile 
+2020-09-21 18:01:49,254 INFO  ------------------------------------------- 
+2020-09-21 18:01:49,480 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/kafka09source create ClassLoad successful... 
+2020-09-21 18:01:49,489 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/mysqlsink create ClassLoad successful... 
+2020-09-21 18:01:49,523 INFO  class org.apache.flink.types.Row does not contain a getter for field fields 
+2020-09-21 18:01:49,523 INFO  class org.apache.flink.types.Row does not contain a setter for field fields 
+2020-09-21 18:01:49,523 INFO  Class class org.apache.flink.types.Row cannot be used as a POJO type because not all fields are valid POJO fields, and must be processed as GenericType. Please read the Flink documentation on "Data Types & Serialization" for details of the effect on performance. 
+2020-09-21 18:01:50,585 INFO  registe table kfkTable success. 
+2020-09-21 18:01:50,593 INFO  exe-sql:
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:01:50,593 INFO  ----------exec sql without dimension join----------- 
+2020-09-21 18:01:50,593 INFO  ----------real sql exec is--------------------------
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:01:50,858 INFO  exec sql: INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:01:50,948 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 18:01:50,948 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 18:01:50,948 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 18:01:50,948 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 18:01:50,948 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 18:01:50,948 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 18:01:50,948 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 18:01:50,948 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 18:01:50,949 WARN  The configuration directory ('/Users/jingdongqi/opt/module/flink-1.10.0/conf') already contains a LOG4J config file.If you want to use logback, then please delete or rename the log configuration file. 
+2020-09-21 18:01:51,153 WARN  Unable to load native-hadoop library for your platform... using builtin-java classes where applicable 
+2020-09-21 18:01:51,212 INFO  Hadoop user set to jingdongqi (auth:SIMPLE) 
+2020-09-21 18:01:51,215 INFO  Jaas file will be created as /var/folders/xc/48rrrdlx7p7422qrt9b8gs6h0000gn/T/jaas-5548624255067468029.conf. 
+2020-09-21 18:01:51,260 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 18:01:51,357 INFO  No path for the flink jar passed. Using the location of class org.apache.flink.yarn.YarnClusterDescriptor to locate the jar 
+2020-09-21 18:01:51,562 INFO  Cluster specification: ClusterSpecification{masterMemoryMB=1024, taskManagerMemoryMB=2048, slotsPerTaskManager=1} 
+2020-09-21 18:01:51,565 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 18:01:51,857 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 18:01:52,841 INFO  Submitting application master application_1600681563761_0006 
+2020-09-21 18:01:52,881 INFO  Submitted application application_1600681563761_0006 
+2020-09-21 18:01:52,881 INFO  Waiting for the cluster to be allocated 
+2020-09-21 18:01:52,885 INFO  Deploying cluster, current state ACCEPTED 
+Exception in thread "main" org.apache.flink.client.deployment.ClusterDeploymentException: Could not deploy Yarn job cluster.
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:397)
+	at com.dtstack.flink.sql.launcher.executor.YarnJobClusterExecutor.exec(YarnJobClusterExecutor.java:89)
+	at com.dtstack.flink.sql.launcher.LauncherMain.main(LauncherMain.java:146)
+Caused by: org.apache.flink.yarn.YarnClusterDescriptor$YarnDeploymentException: The YARN application unexpectedly switched to state FAILED during deployment. 
+Diagnostics from YARN: Application application_1600681563761_0006 failed 1 times (global limit =2; local limit is =1) due to AM Container for appattempt_1600681563761_0006_000001 exited with  exitCode: 2
+Failing this attempt.Diagnostics: [2020-09-21 18:01:56.585]Exception from container-launch.
+Container id: container_1600681563761_0006_01_000001
+Exit code: 2
+
+[2020-09-21 18:01:56.587]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+[2020-09-21 18:01:56.587]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+For more detailed output, check the application tracking page: http://localhost:8088/cluster/app/application_1600681563761_0006 Then click on links to logs of each attempt.
+. Failing the application.
+If log aggregation is enabled on your cluster, use this command to further investigate the issue:
+yarn logs -applicationId application_1600681563761_0006
+	at org.apache.flink.yarn.YarnClusterDescriptor.startAppMaster(YarnClusterDescriptor.java:999)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployInternal(YarnClusterDescriptor.java:488)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:390)
+	... 2 more
+2020-09-21 18:01:56,690 INFO  Cancelling deployment from Deployment Failure Hook 
+2020-09-21 18:01:56,691 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 18:01:56,691 INFO  Killing YARN application 
+2020-09-21 18:01:56,695 INFO  Killed application application_1600681563761_0006 
+2020-09-21 18:01:56,695 INFO  Deleting files in hdfs://localhost:8020/user/jingdongqi/.flink/application_1600681563761_0006. 
+2020-09-21 18:05:30,499 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 18:05:30,499 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 18:05:30,499 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 18:05:30,500 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 18:05:30,500 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 18:05:30,500 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 18:05:30,500 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 18:05:30,500 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 18:05:31,031 INFO  ------------program params------------------------- 
+2020-09-21 18:05:31,031 INFO  -mode 
+2020-09-21 18:05:31,032 INFO  yarnPer 
+2020-09-21 18:05:31,032 INFO  -name 
+2020-09-21 18:05:31,032 INFO  mysql2mysqlTest 
+2020-09-21 18:05:31,032 INFO  -sql 
+2020-09-21 18:05:31,032 INFO  ++CREATE+TABLE+kfkTable%28%0A++++id+int%2C%0A++++name+varchar%0A+%29WITH%28%0A++++type+%3D%27kafka09%27%2C%0A++++bootstrapServers+%3D%27localhost%3A9092%27%2C%0A++++zookeeperQuorum+%3D%27localhost%3A2181%2Fkafka%27%2C%0A++++offsetReset+%3D%27latest%27%2C%0A++++topic+%3D%27test%27%2C%0A++++groupId%3D%27test%27%2C%0A++++parallelism+%3D%271%27%2C%0A++++timezone%3D%27Asia%2FShanghai%27%2C%0A++++sourcedatatype+%3D%27dt_nest%27%0A+%29%3B%0A%0A%0A++CREATE+TABLE+MyResult%28%0A++++id+int%2C%0A++++name+VARCHAR%0A+%29WITH%28%0A++++type+%3D%27mysql%27%2C%0A++++url+%3D%27jdbc%3Amysql%3A%2F%2Flocalhost%3A3306%2Ftest%27%2C%0A++++userName+%3D%27root%27%2C%0A++++password+%3D%2712345678%27%2C%0A++++tableName+%3D%27student1%27%2C%0A++++parallelism+%3D%271%27%0A+%29%3B%0A%0Ainsert%0Ainto%0A++++MyResult%0A++++select%0A++++++++id%2C%0A++++++++name%0A++++from%0A++++++++kfkTable%3B 
+2020-09-21 18:05:31,032 INFO  -flinkconf 
+2020-09-21 18:05:31,032 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/conf 
+2020-09-21 18:05:31,032 INFO  -yarnconf 
+2020-09-21 18:05:31,032 INFO  /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 18:05:31,032 INFO  -localSqlPluginPath 
+2020-09-21 18:05:31,032 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 18:05:31,032 INFO  -remoteSqlPluginPath 
+2020-09-21 18:05:31,032 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 18:05:31,032 INFO  -confProp 
+2020-09-21 18:05:31,032 INFO  {"time.characteristic":"eventTime","logLevel":"info"} 
+2020-09-21 18:05:31,032 INFO  -flinkJarPath 
+2020-09-21 18:05:31,032 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/lib 
+2020-09-21 18:05:31,032 INFO  -queue 
+2020-09-21 18:05:31,032 INFO  default 
+2020-09-21 18:05:31,032 INFO  -yarnSessionConf 
+2020-09-21 18:05:31,032 INFO  {} 
+2020-09-21 18:05:31,032 INFO  -pluginLoadMode 
+2020-09-21 18:05:31,032 INFO  shipfile 
+2020-09-21 18:05:31,032 INFO  ------------------------------------------- 
+2020-09-21 18:05:31,218 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/kafka09source create ClassLoad successful... 
+2020-09-21 18:05:31,227 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/mysqlsink create ClassLoad successful... 
+2020-09-21 18:05:31,259 INFO  class org.apache.flink.types.Row does not contain a getter for field fields 
+2020-09-21 18:05:31,259 INFO  class org.apache.flink.types.Row does not contain a setter for field fields 
+2020-09-21 18:05:31,259 INFO  Class class org.apache.flink.types.Row cannot be used as a POJO type because not all fields are valid POJO fields, and must be processed as GenericType. Please read the Flink documentation on "Data Types & Serialization" for details of the effect on performance. 
+2020-09-21 18:05:32,381 INFO  registe table kfkTable success. 
+2020-09-21 18:05:32,391 INFO  exe-sql:
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:05:32,391 INFO  ----------exec sql without dimension join----------- 
+2020-09-21 18:05:32,391 INFO  ----------real sql exec is--------------------------
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:05:32,704 INFO  exec sql: INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:05:32,792 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 18:05:32,792 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 18:05:32,792 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 18:05:32,792 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 18:05:32,792 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 18:05:32,792 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 18:05:32,793 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 18:05:32,793 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 18:05:32,794 WARN  The configuration directory ('/Users/jingdongqi/opt/module/flink-1.10.0/conf') already contains a LOG4J config file.If you want to use logback, then please delete or rename the log configuration file. 
+2020-09-21 18:05:33,049 WARN  Unable to load native-hadoop library for your platform... using builtin-java classes where applicable 
+2020-09-21 18:05:33,124 INFO  Hadoop user set to jingdongqi (auth:SIMPLE) 
+2020-09-21 18:05:33,127 INFO  Jaas file will be created as /var/folders/xc/48rrrdlx7p7422qrt9b8gs6h0000gn/T/jaas-5125723979727846567.conf. 
+2020-09-21 18:05:33,183 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 18:05:33,314 INFO  No path for the flink jar passed. Using the location of class org.apache.flink.yarn.YarnClusterDescriptor to locate the jar 
+2020-09-21 18:05:33,585 INFO  Cluster specification: ClusterSpecification{masterMemoryMB=1024, taskManagerMemoryMB=2048, slotsPerTaskManager=1} 
+2020-09-21 18:05:33,588 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 18:05:33,918 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 18:05:34,789 INFO  Submitting application master application_1600681563761_0007 
+2020-09-21 18:05:34,822 INFO  Submitted application application_1600681563761_0007 
+2020-09-21 18:05:34,823 INFO  Waiting for the cluster to be allocated 
+2020-09-21 18:05:34,824 INFO  Deploying cluster, current state ACCEPTED 
+Exception in thread "main" org.apache.flink.client.deployment.ClusterDeploymentException: Could not deploy Yarn job cluster.
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:397)
+	at com.dtstack.flink.sql.launcher.executor.YarnJobClusterExecutor.exec(YarnJobClusterExecutor.java:89)
+	at com.dtstack.flink.sql.launcher.LauncherMain.main(LauncherMain.java:146)
+Caused by: org.apache.flink.yarn.YarnClusterDescriptor$YarnDeploymentException: The YARN application unexpectedly switched to state FAILED during deployment. 
+Diagnostics from YARN: Application application_1600681563761_0007 failed 1 times (global limit =2; local limit is =1) due to AM Container for appattempt_1600681563761_0007_000001 exited with  exitCode: 2
+Failing this attempt.Diagnostics: [2020-09-21 18:05:39.146]Exception from container-launch.
+Container id: container_1600681563761_0007_01_000001
+Exit code: 2
+
+[2020-09-21 18:05:39.148]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+[2020-09-21 18:05:39.148]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+For more detailed output, check the application tracking page: http://localhost:8088/cluster/app/application_1600681563761_0007 Then click on links to logs of each attempt.
+. Failing the application.
+If log aggregation is enabled on your cluster, use this command to further investigate the issue:
+yarn logs -applicationId application_1600681563761_0007
+	at org.apache.flink.yarn.YarnClusterDescriptor.startAppMaster(YarnClusterDescriptor.java:999)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployInternal(YarnClusterDescriptor.java:488)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:390)
+	... 2 more
+2020-09-21 18:05:39,386 INFO  Cancelling deployment from Deployment Failure Hook 
+2020-09-21 18:05:39,387 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 18:05:39,387 INFO  Killing YARN application 
+2020-09-21 18:05:39,391 INFO  Killed application application_1600681563761_0007 
+2020-09-21 18:05:39,391 INFO  Deleting files in hdfs://localhost:8020/user/jingdongqi/.flink/application_1600681563761_0007. 
+2020-09-21 18:27:03,920 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 18:27:03,920 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 18:27:03,920 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 18:27:03,920 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 18:27:03,920 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 18:27:03,920 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 18:27:03,920 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 18:27:03,921 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 18:27:04,475 INFO  ------------program params------------------------- 
+2020-09-21 18:27:04,475 INFO  -mode 
+2020-09-21 18:27:04,476 INFO  yarnPer 
+2020-09-21 18:27:04,476 INFO  -name 
+2020-09-21 18:27:04,476 INFO  mysql2mysqlTest 
+2020-09-21 18:27:04,476 INFO  -sql 
+2020-09-21 18:27:04,476 INFO  ++CREATE+TABLE+kfkTable%28%0A++++id+int%2C%0A++++name+varchar%0A+%29WITH%28%0A++++type+%3D%27kafka09%27%2C%0A++++bootstrapServers+%3D%27localhost%3A9092%27%2C%0A++++zookeeperQuorum+%3D%27localhost%3A2181%2Fkafka%27%2C%0A++++offsetReset+%3D%27latest%27%2C%0A++++topic+%3D%27test%27%2C%0A++++groupId%3D%27test%27%2C%0A++++parallelism+%3D%271%27%2C%0A++++timezone%3D%27Asia%2FShanghai%27%2C%0A++++sourcedatatype+%3D%27dt_nest%27%0A+%29%3B%0A%0A%0A++CREATE+TABLE+MyResult%28%0A++++id+int%2C%0A++++name+VARCHAR%0A+%29WITH%28%0A++++type+%3D%27mysql%27%2C%0A++++url+%3D%27jdbc%3Amysql%3A%2F%2Flocalhost%3A3306%2Ftest%27%2C%0A++++userName+%3D%27root%27%2C%0A++++password+%3D%2712345678%27%2C%0A++++tableName+%3D%27student1%27%2C%0A++++parallelism+%3D%271%27%0A+%29%3B%0A%0Ainsert%0Ainto%0A++++MyResult%0A++++select%0A++++++++id%2C%0A++++++++name%0A++++from%0A++++++++kfkTable%3B 
+2020-09-21 18:27:04,476 INFO  -flinkconf 
+2020-09-21 18:27:04,476 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/conf 
+2020-09-21 18:27:04,476 INFO  -yarnconf 
+2020-09-21 18:27:04,476 INFO  /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 18:27:04,476 INFO  -localSqlPluginPath 
+2020-09-21 18:27:04,476 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 18:27:04,477 INFO  -remoteSqlPluginPath 
+2020-09-21 18:27:04,477 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 18:27:04,477 INFO  -confProp 
+2020-09-21 18:27:04,477 INFO  {} 
+2020-09-21 18:27:04,477 INFO  -flinkJarPath 
+2020-09-21 18:27:04,477 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/lib 
+2020-09-21 18:27:04,477 INFO  -queue 
+2020-09-21 18:27:04,477 INFO  default 
+2020-09-21 18:27:04,477 INFO  -yarnSessionConf 
+2020-09-21 18:27:04,477 INFO  {} 
+2020-09-21 18:27:04,477 INFO  -pluginLoadMode 
+2020-09-21 18:27:04,477 INFO  CLASSPATH 
+2020-09-21 18:27:04,477 INFO  ------------------------------------------- 
+2020-09-21 18:27:04,670 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/kafka09source create ClassLoad successful... 
+2020-09-21 18:27:04,677 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/mysqlsink create ClassLoad successful... 
+2020-09-21 18:27:04,705 INFO  class org.apache.flink.types.Row does not contain a getter for field fields 
+2020-09-21 18:27:04,706 INFO  class org.apache.flink.types.Row does not contain a setter for field fields 
+2020-09-21 18:27:04,706 INFO  Class class org.apache.flink.types.Row cannot be used as a POJO type because not all fields are valid POJO fields, and must be processed as GenericType. Please read the Flink documentation on "Data Types & Serialization" for details of the effect on performance. 
+2020-09-21 18:27:05,694 INFO  registe table kfkTable success. 
+2020-09-21 18:27:05,703 INFO  exe-sql:
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:27:05,704 INFO  ----------exec sql without dimension join----------- 
+2020-09-21 18:27:05,704 INFO  ----------real sql exec is--------------------------
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:27:05,960 INFO  exec sql: INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:27:06,031 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 18:27:06,031 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 18:27:06,031 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 18:27:06,031 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 18:27:06,031 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 18:27:06,031 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 18:27:06,031 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 18:27:06,031 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 18:27:06,032 WARN  The configuration directory ('/Users/jingdongqi/opt/module/flink-1.10.0/conf') already contains a LOG4J config file.If you want to use logback, then please delete or rename the log configuration file. 
+2020-09-21 18:27:06,240 WARN  Unable to load native-hadoop library for your platform... using builtin-java classes where applicable 
+2020-09-21 18:27:06,300 INFO  Hadoop user set to jingdongqi (auth:SIMPLE) 
+2020-09-21 18:27:06,303 INFO  Jaas file will be created as /var/folders/xc/48rrrdlx7p7422qrt9b8gs6h0000gn/T/jaas-7732174562111301073.conf. 
+2020-09-21 18:27:06,344 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 18:27:06,421 INFO  No path for the flink jar passed. Using the location of class org.apache.flink.yarn.YarnClusterDescriptor to locate the jar 
+2020-09-21 18:27:06,580 INFO  Cluster specification: ClusterSpecification{masterMemoryMB=1024, taskManagerMemoryMB=2048, slotsPerTaskManager=1} 
+2020-09-21 18:27:06,582 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 18:27:06,862 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 18:27:07,390 INFO  Submitting application master application_1600681563761_0008 
+2020-09-21 18:27:07,409 INFO  Submitted application application_1600681563761_0008 
+2020-09-21 18:27:07,409 INFO  Waiting for the cluster to be allocated 
+2020-09-21 18:27:07,410 INFO  Deploying cluster, current state ACCEPTED 
+Exception in thread "main" org.apache.flink.client.deployment.ClusterDeploymentException: Could not deploy Yarn job cluster.
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:397)
+	at com.dtstack.flink.sql.launcher.executor.YarnJobClusterExecutor.exec(YarnJobClusterExecutor.java:89)
+	at com.dtstack.flink.sql.launcher.LauncherMain.main(LauncherMain.java:146)
+Caused by: org.apache.flink.yarn.YarnClusterDescriptor$YarnDeploymentException: The YARN application unexpectedly switched to state FAILED during deployment. 
+Diagnostics from YARN: Application application_1600681563761_0008 failed 1 times (global limit =2; local limit is =1) due to AM Container for appattempt_1600681563761_0008_000001 exited with  exitCode: 2
+Failing this attempt.Diagnostics: [2020-09-21 18:27:11.275]Exception from container-launch.
+Container id: container_1600681563761_0008_01_000001
+Exit code: 2
+
+[2020-09-21 18:27:11.277]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+[2020-09-21 18:27:11.277]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+For more detailed output, check the application tracking page: http://localhost:8088/cluster/app/application_1600681563761_0008 Then click on links to logs of each attempt.
+. Failing the application.
+If log aggregation is enabled on your cluster, use this command to further investigate the issue:
+yarn logs -applicationId application_1600681563761_0008
+	at org.apache.flink.yarn.YarnClusterDescriptor.startAppMaster(YarnClusterDescriptor.java:999)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployInternal(YarnClusterDescriptor.java:488)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:390)
+	... 2 more
+2020-09-21 18:27:11,474 INFO  Cancelling deployment from Deployment Failure Hook 
+2020-09-21 18:27:11,475 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 18:27:11,475 INFO  Killing YARN application 
+2020-09-21 18:27:11,479 INFO  Killed application application_1600681563761_0008 
+2020-09-21 18:27:11,479 INFO  Deleting files in hdfs://localhost:8020/user/jingdongqi/.flink/application_1600681563761_0008. 
+2020-09-21 18:27:33,308 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 18:27:33,308 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 18:27:33,309 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 18:27:33,309 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 18:27:33,309 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 18:27:33,309 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 18:27:33,309 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 18:27:33,309 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 18:27:33,828 INFO  ------------program params------------------------- 
+2020-09-21 18:27:33,828 INFO  -mode 
+2020-09-21 18:27:33,828 INFO  yarnPer 
+2020-09-21 18:27:33,829 INFO  -name 
+2020-09-21 18:27:33,829 INFO  mysql2mysqlTest 
+2020-09-21 18:27:33,829 INFO  -sql 
+2020-09-21 18:27:33,829 INFO  ++CREATE+TABLE+kfkTable%28%0A++++id+int%2C%0A++++name+varchar%0A+%29WITH%28%0A++++type+%3D%27kafka09%27%2C%0A++++bootstrapServers+%3D%27localhost%3A9092%27%2C%0A++++zookeeperQuorum+%3D%27localhost%3A2181%2Fkafka%27%2C%0A++++offsetReset+%3D%27latest%27%2C%0A++++topic+%3D%27test%27%2C%0A++++groupId%3D%27test%27%2C%0A++++parallelism+%3D%271%27%2C%0A++++timezone%3D%27Asia%2FShanghai%27%2C%0A++++sourcedatatype+%3D%27dt_nest%27%0A+%29%3B%0A%0A%0A++CREATE+TABLE+MyResult%28%0A++++id+int%2C%0A++++name+VARCHAR%0A+%29WITH%28%0A++++type+%3D%27mysql%27%2C%0A++++url+%3D%27jdbc%3Amysql%3A%2F%2Flocalhost%3A3306%2Ftest%27%2C%0A++++userName+%3D%27root%27%2C%0A++++password+%3D%2712345678%27%2C%0A++++tableName+%3D%27student1%27%2C%0A++++parallelism+%3D%271%27%0A+%29%3B%0A%0Ainsert%0Ainto%0A++++MyResult%0A++++select%0A++++++++id%2C%0A++++++++name%0A++++from%0A++++++++kfkTable%3B 
+2020-09-21 18:27:33,829 INFO  -flinkconf 
+2020-09-21 18:27:33,829 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/conf 
+2020-09-21 18:27:33,829 INFO  -yarnconf 
+2020-09-21 18:27:33,829 INFO  /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 18:27:33,829 INFO  -localSqlPluginPath 
+2020-09-21 18:27:33,829 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 18:27:33,829 INFO  -remoteSqlPluginPath 
+2020-09-21 18:27:33,829 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 18:27:33,829 INFO  -confProp 
+2020-09-21 18:27:33,829 INFO  {"time.characteristic":"eventTime","logLevel":"info"} 
+2020-09-21 18:27:33,829 INFO  -flinkJarPath 
+2020-09-21 18:27:33,829 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/lib 
+2020-09-21 18:27:33,829 INFO  -queue 
+2020-09-21 18:27:33,829 INFO  default 
+2020-09-21 18:27:33,829 INFO  -yarnSessionConf 
+2020-09-21 18:27:33,829 INFO  {} 
+2020-09-21 18:27:33,829 INFO  -pluginLoadMode 
+2020-09-21 18:27:33,829 INFO  CLASSPATH 
+2020-09-21 18:27:33,829 INFO  ------------------------------------------- 
+2020-09-21 18:27:34,032 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/kafka09source create ClassLoad successful... 
+2020-09-21 18:27:34,040 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/mysqlsink create ClassLoad successful... 
+2020-09-21 18:27:34,073 INFO  class org.apache.flink.types.Row does not contain a getter for field fields 
+2020-09-21 18:27:34,073 INFO  class org.apache.flink.types.Row does not contain a setter for field fields 
+2020-09-21 18:27:34,073 INFO  Class class org.apache.flink.types.Row cannot be used as a POJO type because not all fields are valid POJO fields, and must be processed as GenericType. Please read the Flink documentation on "Data Types & Serialization" for details of the effect on performance. 
+2020-09-21 18:27:34,991 INFO  registe table kfkTable success. 
+2020-09-21 18:27:34,999 INFO  exe-sql:
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:27:34,999 INFO  ----------exec sql without dimension join----------- 
+2020-09-21 18:27:34,999 INFO  ----------real sql exec is--------------------------
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:27:35,257 INFO  exec sql: INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:27:35,337 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 18:27:35,338 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 18:27:35,338 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 18:27:35,338 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 18:27:35,338 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 18:27:35,338 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 18:27:35,338 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 18:27:35,338 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 18:27:35,339 WARN  The configuration directory ('/Users/jingdongqi/opt/module/flink-1.10.0/conf') already contains a LOG4J config file.If you want to use logback, then please delete or rename the log configuration file. 
+2020-09-21 18:27:35,541 WARN  Unable to load native-hadoop library for your platform... using builtin-java classes where applicable 
+2020-09-21 18:27:35,608 INFO  Hadoop user set to jingdongqi (auth:SIMPLE) 
+2020-09-21 18:27:35,611 INFO  Jaas file will be created as /var/folders/xc/48rrrdlx7p7422qrt9b8gs6h0000gn/T/jaas-6320001063914643471.conf. 
+2020-09-21 18:27:35,651 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 18:27:35,741 INFO  No path for the flink jar passed. Using the location of class org.apache.flink.yarn.YarnClusterDescriptor to locate the jar 
+2020-09-21 18:27:35,933 INFO  Cluster specification: ClusterSpecification{masterMemoryMB=1024, taskManagerMemoryMB=2048, slotsPerTaskManager=1} 
+2020-09-21 18:27:35,936 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 18:27:36,317 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 18:27:37,049 INFO  Submitting application master application_1600681563761_0009 
+2020-09-21 18:27:37,078 INFO  Submitted application application_1600681563761_0009 
+2020-09-21 18:27:37,078 INFO  Waiting for the cluster to be allocated 
+2020-09-21 18:27:37,079 INFO  Deploying cluster, current state ACCEPTED 
+Exception in thread "main" org.apache.flink.client.deployment.ClusterDeploymentException: Could not deploy Yarn job cluster.
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:397)
+	at com.dtstack.flink.sql.launcher.executor.YarnJobClusterExecutor.exec(YarnJobClusterExecutor.java:89)
+	at com.dtstack.flink.sql.launcher.LauncherMain.main(LauncherMain.java:146)
+Caused by: org.apache.flink.yarn.YarnClusterDescriptor$YarnDeploymentException: The YARN application unexpectedly switched to state FAILED during deployment. 
+Diagnostics from YARN: Application application_1600681563761_0009 failed 1 times (global limit =2; local limit is =1) due to AM Container for appattempt_1600681563761_0009_000001 exited with  exitCode: 2
+Failing this attempt.Diagnostics: [2020-09-21 18:27:41.741]Exception from container-launch.
+Container id: container_1600681563761_0009_01_000001
+Exit code: 2
+
+[2020-09-21 18:27:41.742]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+[2020-09-21 18:27:41.743]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+For more detailed output, check the application tracking page: http://localhost:8088/cluster/app/application_1600681563761_0009 Then click on links to logs of each attempt.
+. Failing the application.
+If log aggregation is enabled on your cluster, use this command to further investigate the issue:
+yarn logs -applicationId application_1600681563761_0009
+	at org.apache.flink.yarn.YarnClusterDescriptor.startAppMaster(YarnClusterDescriptor.java:999)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployInternal(YarnClusterDescriptor.java:488)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:390)
+	... 2 more
+2020-09-21 18:27:41,908 INFO  Cancelling deployment from Deployment Failure Hook 
+2020-09-21 18:27:41,908 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 18:27:41,909 INFO  Killing YARN application 
+2020-09-21 18:27:41,911 INFO  Killed application application_1600681563761_0009 
+2020-09-21 18:27:41,911 INFO  Deleting files in hdfs://localhost:8020/user/jingdongqi/.flink/application_1600681563761_0009. 
+2020-09-21 18:32:59,318 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 18:32:59,318 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 18:32:59,318 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 18:32:59,318 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 18:32:59,318 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 18:32:59,318 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 18:32:59,319 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 18:32:59,319 INFO  Loading configuration property: fs.hdfs.hadoopconf, /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 18:32:59,319 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 18:32:59,849 INFO  ------------program params------------------------- 
+2020-09-21 18:32:59,850 INFO  -mode 
+2020-09-21 18:32:59,850 INFO  yarnPer 
+2020-09-21 18:32:59,850 INFO  -name 
+2020-09-21 18:32:59,850 INFO  mysql2mysqlTest 
+2020-09-21 18:32:59,850 INFO  -sql 
+2020-09-21 18:32:59,850 INFO  ++CREATE+TABLE+kfkTable%28%0A++++id+int%2C%0A++++name+varchar%0A+%29WITH%28%0A++++type+%3D%27kafka09%27%2C%0A++++bootstrapServers+%3D%27localhost%3A9092%27%2C%0A++++zookeeperQuorum+%3D%27localhost%3A2181%2Fkafka%27%2C%0A++++offsetReset+%3D%27latest%27%2C%0A++++topic+%3D%27test%27%2C%0A++++groupId%3D%27test%27%2C%0A++++parallelism+%3D%271%27%2C%0A++++timezone%3D%27Asia%2FShanghai%27%2C%0A++++sourcedatatype+%3D%27dt_nest%27%0A+%29%3B%0A%0A%0A++CREATE+TABLE+MyResult%28%0A++++id+int%2C%0A++++name+VARCHAR%0A+%29WITH%28%0A++++type+%3D%27mysql%27%2C%0A++++url+%3D%27jdbc%3Amysql%3A%2F%2Flocalhost%3A3306%2Ftest%27%2C%0A++++userName+%3D%27root%27%2C%0A++++password+%3D%2712345678%27%2C%0A++++tableName+%3D%27student1%27%2C%0A++++parallelism+%3D%271%27%0A+%29%3B%0A%0Ainsert%0Ainto%0A++++MyResult%0A++++select%0A++++++++id%2C%0A++++++++name%0A++++from%0A++++++++kfkTable%3B 
+2020-09-21 18:32:59,850 INFO  -flinkconf 
+2020-09-21 18:32:59,850 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/conf 
+2020-09-21 18:32:59,850 INFO  -yarnconf 
+2020-09-21 18:32:59,850 INFO  /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 18:32:59,850 INFO  -localSqlPluginPath 
+2020-09-21 18:32:59,850 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 18:32:59,850 INFO  -remoteSqlPluginPath 
+2020-09-21 18:32:59,850 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 18:32:59,850 INFO  -confProp 
+2020-09-21 18:32:59,850 INFO  {"time.characteristic":"eventTime","logLevel":"info"} 
+2020-09-21 18:32:59,850 INFO  -flinkJarPath 
+2020-09-21 18:32:59,850 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/lib 
+2020-09-21 18:32:59,850 INFO  -queue 
+2020-09-21 18:32:59,850 INFO  default 
+2020-09-21 18:32:59,850 INFO  -yarnSessionConf 
+2020-09-21 18:32:59,850 INFO  {} 
+2020-09-21 18:32:59,850 INFO  -pluginLoadMode 
+2020-09-21 18:32:59,850 INFO  CLASSPATH 
+2020-09-21 18:32:59,850 INFO  ------------------------------------------- 
+2020-09-21 18:33:00,050 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/kafka09source create ClassLoad successful... 
+2020-09-21 18:33:00,057 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/mysqlsink create ClassLoad successful... 
+2020-09-21 18:33:00,088 INFO  class org.apache.flink.types.Row does not contain a getter for field fields 
+2020-09-21 18:33:00,088 INFO  class org.apache.flink.types.Row does not contain a setter for field fields 
+2020-09-21 18:33:00,088 INFO  Class class org.apache.flink.types.Row cannot be used as a POJO type because not all fields are valid POJO fields, and must be processed as GenericType. Please read the Flink documentation on "Data Types & Serialization" for details of the effect on performance. 
+2020-09-21 18:33:01,131 INFO  registe table kfkTable success. 
+2020-09-21 18:33:01,142 INFO  exe-sql:
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:33:01,142 INFO  ----------exec sql without dimension join----------- 
+2020-09-21 18:33:01,142 INFO  ----------real sql exec is--------------------------
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:33:01,429 INFO  exec sql: INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 18:33:01,521 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 18:33:01,521 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 18:33:01,521 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 18:33:01,521 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 18:33:01,521 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 18:33:01,521 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 18:33:01,521 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 18:33:01,521 INFO  Loading configuration property: fs.hdfs.hadoopconf, /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 18:33:01,521 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 18:33:01,522 WARN  The configuration directory ('/Users/jingdongqi/opt/module/flink-1.10.0/conf') already contains a LOG4J config file.If you want to use logback, then please delete or rename the log configuration file. 
+2020-09-21 18:33:01,801 WARN  Unable to load native-hadoop library for your platform... using builtin-java classes where applicable 
+2020-09-21 18:33:01,917 INFO  Hadoop user set to jingdongqi (auth:SIMPLE) 
+2020-09-21 18:33:01,931 INFO  Jaas file will be created as /var/folders/xc/48rrrdlx7p7422qrt9b8gs6h0000gn/T/jaas-407060312684860371.conf. 
+2020-09-21 18:33:02,086 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 18:33:02,191 INFO  No path for the flink jar passed. Using the location of class org.apache.flink.yarn.YarnClusterDescriptor to locate the jar 
+2020-09-21 18:33:02,400 INFO  Cluster specification: ClusterSpecification{masterMemoryMB=1024, taskManagerMemoryMB=2048, slotsPerTaskManager=1} 
+2020-09-21 18:33:02,402 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 18:33:02,705 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 18:33:03,520 INFO  Submitting application master application_1600681563761_0010 
+2020-09-21 18:33:03,555 INFO  Submitted application application_1600681563761_0010 
+2020-09-21 18:33:03,555 INFO  Waiting for the cluster to be allocated 
+2020-09-21 18:33:03,557 INFO  Deploying cluster, current state ACCEPTED 
+Exception in thread "main" org.apache.flink.client.deployment.ClusterDeploymentException: Could not deploy Yarn job cluster.
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:397)
+	at com.dtstack.flink.sql.launcher.executor.YarnJobClusterExecutor.exec(YarnJobClusterExecutor.java:89)
+	at com.dtstack.flink.sql.launcher.LauncherMain.main(LauncherMain.java:146)
+Caused by: org.apache.flink.yarn.YarnClusterDescriptor$YarnDeploymentException: The YARN application unexpectedly switched to state FAILED during deployment. 
+Diagnostics from YARN: Application application_1600681563761_0010 failed 1 times (global limit =2; local limit is =1) due to AM Container for appattempt_1600681563761_0010_000001 exited with  exitCode: 2
+Failing this attempt.Diagnostics: [2020-09-21 18:33:07.363]Exception from container-launch.
+Container id: container_1600681563761_0010_01_000001
+Exit code: 2
+
+[2020-09-21 18:33:07.365]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+[2020-09-21 18:33:07.365]Container exited with a non-zero exit code 2. Error file: prelaunch.err.
+Last 4096 bytes of prelaunch.err :
+
+For more detailed output, check the application tracking page: http://localhost:8088/cluster/app/application_1600681563761_0010 Then click on links to logs of each attempt.
+. Failing the application.
+If log aggregation is enabled on your cluster, use this command to further investigate the issue:
+yarn logs -applicationId application_1600681563761_0010
+	at org.apache.flink.yarn.YarnClusterDescriptor.startAppMaster(YarnClusterDescriptor.java:999)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployInternal(YarnClusterDescriptor.java:488)
+	at org.apache.flink.yarn.YarnClusterDescriptor.deployJobCluster(YarnClusterDescriptor.java:390)
+	... 2 more
+2020-09-21 18:33:07,619 INFO  Cancelling deployment from Deployment Failure Hook 
+2020-09-21 18:33:07,619 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 18:33:07,620 INFO  Killing YARN application 
+2020-09-21 18:33:07,624 INFO  Killed application application_1600681563761_0010 
+2020-09-21 18:33:07,624 INFO  Deleting files in hdfs://localhost:8020/user/jingdongqi/.flink/application_1600681563761_0010. 
+2020-09-21 19:07:59,376 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 19:07:59,377 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 19:07:59,377 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 19:07:59,377 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 19:07:59,377 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 19:07:59,377 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 19:07:59,378 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 19:07:59,378 INFO  Loading configuration property: fs.hdfs.hadoopconf, /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 19:07:59,378 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 19:08:00,429 INFO  ------------program params------------------------- 
+2020-09-21 19:08:00,430 INFO  -mode 
+2020-09-21 19:08:00,430 INFO  yarnPer 
+2020-09-21 19:08:00,430 INFO  -name 
+2020-09-21 19:08:00,430 INFO  mysql2mysqlTest 
+2020-09-21 19:08:00,430 INFO  -sql 
+2020-09-21 19:08:00,430 INFO  ++CREATE+TABLE+kfkTable%28%0A++++id+int%2C%0A++++name+varchar%0A+%29WITH%28%0A++++type+%3D%27kafka09%27%2C%0A++++bootstrapServers+%3D%27localhost%3A9092%27%2C%0A++++zookeeperQuorum+%3D%27localhost%3A2181%2Fkafka%27%2C%0A++++offsetReset+%3D%27latest%27%2C%0A++++topic+%3D%27test%27%2C%0A++++groupId%3D%27test%27%2C%0A++++parallelism+%3D%271%27%2C%0A++++timezone%3D%27Asia%2FShanghai%27%2C%0A++++sourcedatatype+%3D%27dt_nest%27%0A+%29%3B%0A%0A%0A++CREATE+TABLE+MyResult%28%0A++++id+int%2C%0A++++name+VARCHAR%0A+%29WITH%28%0A++++type+%3D%27mysql%27%2C%0A++++url+%3D%27jdbc%3Amysql%3A%2F%2Flocalhost%3A3306%2Ftest%27%2C%0A++++userName+%3D%27root%27%2C%0A++++password+%3D%2712345678%27%2C%0A++++tableName+%3D%27student1%27%2C%0A++++parallelism+%3D%271%27%0A+%29%3B%0A%0Ainsert%0Ainto%0A++++MyResult%0A++++select%0A++++++++id%2C%0A++++++++name%0A++++from%0A++++++++kfkTable%3B 
+2020-09-21 19:08:00,430 INFO  -flinkconf 
+2020-09-21 19:08:00,430 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/conf 
+2020-09-21 19:08:00,430 INFO  -yarnconf 
+2020-09-21 19:08:00,430 INFO  /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 19:08:00,430 INFO  -localSqlPluginPath 
+2020-09-21 19:08:00,430 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 19:08:00,430 INFO  -remoteSqlPluginPath 
+2020-09-21 19:08:00,430 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 19:08:00,430 INFO  -confProp 
+2020-09-21 19:08:00,430 INFO  {"time.characteristic":"eventTime","logLevel":"info"} 
+2020-09-21 19:08:00,430 INFO  -flinkJarPath 
+2020-09-21 19:08:00,430 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/lib 
+2020-09-21 19:08:00,430 INFO  -queue 
+2020-09-21 19:08:00,430 INFO  default 
+2020-09-21 19:08:00,430 INFO  -yarnSessionConf 
+2020-09-21 19:08:00,430 INFO  {} 
+2020-09-21 19:08:00,430 INFO  -pluginLoadMode 
+2020-09-21 19:08:00,431 INFO  CLASSPATH 
+2020-09-21 19:08:00,431 INFO  ------------------------------------------- 
+2020-09-21 19:08:00,956 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/kafka09source create ClassLoad successful... 
+2020-09-21 19:08:00,971 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/mysqlsink create ClassLoad successful... 
+2020-09-21 19:08:01,032 INFO  class org.apache.flink.types.Row does not contain a getter for field fields 
+2020-09-21 19:08:01,032 INFO  class org.apache.flink.types.Row does not contain a setter for field fields 
+2020-09-21 19:08:01,032 INFO  Class class org.apache.flink.types.Row cannot be used as a POJO type because not all fields are valid POJO fields, and must be processed as GenericType. Please read the Flink documentation on "Data Types & Serialization" for details of the effect on performance. 
+2020-09-21 19:08:02,995 INFO  registe table kfkTable success. 
+2020-09-21 19:08:03,008 INFO  exe-sql:
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 19:08:03,008 INFO  ----------exec sql without dimension join----------- 
+2020-09-21 19:08:03,008 INFO  ----------real sql exec is--------------------------
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 19:08:03,408 INFO  exec sql: INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 19:08:03,575 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 19:08:03,575 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 19:08:03,575 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 19:08:03,575 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 19:08:03,575 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 19:08:03,575 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 19:08:03,576 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 19:08:03,576 INFO  Loading configuration property: fs.hdfs.hadoopconf, /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 19:08:03,576 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 19:08:03,578 WARN  The configuration directory ('/Users/jingdongqi/opt/module/flink-1.10.0/conf') already contains a LOG4J config file.If you want to use logback, then please delete or rename the log configuration file. 
+2020-09-21 19:08:04,069 WARN  Unable to load native-hadoop library for your platform... using builtin-java classes where applicable 
+2020-09-21 19:08:04,253 INFO  Hadoop user set to jingdongqi (auth:SIMPLE) 
+2020-09-21 19:08:04,259 INFO  Jaas file will be created as /var/folders/xc/48rrrdlx7p7422qrt9b8gs6h0000gn/T/jaas-5195297068903947641.conf. 
+2020-09-21 19:08:04,373 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 19:08:04,518 INFO  No path for the flink jar passed. Using the location of class org.apache.flink.yarn.YarnClusterDescriptor to locate the jar 
+2020-09-21 19:08:04,831 INFO  Cluster specification: ClusterSpecification{masterMemoryMB=1024, taskManagerMemoryMB=2048, slotsPerTaskManager=1} 
+2020-09-21 19:08:04,836 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 19:08:05,350 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 19:08:06,720 INFO  Submitting application master application_1600681563761_0011 
+2020-09-21 19:08:06,764 INFO  Submitted application application_1600681563761_0011 
+2020-09-21 19:08:06,764 INFO  Waiting for the cluster to be allocated 
+2020-09-21 19:08:06,765 INFO  Deploying cluster, current state ACCEPTED 
+2020-09-21 19:08:13,379 INFO  YARN application has been deployed successfully. 
+2020-09-21 19:08:13,380 INFO  The Flink YARN session cluster has been started in detached mode. In order to stop Flink gracefully, use the following command:
+$ echo "stop" | ./bin/yarn-session.sh -id application_1600681563761_0011
+If this should not be possible, then you can also kill Flink via YARN's web interface or via:
+$ yarn application -kill application_1600681563761_0011
+Note that killing Flink might not clean up all job artifacts and temporary files. 
+2020-09-21 19:08:13,380 INFO  Found Web Interface localhost:51083 of application 'application_1600681563761_0011'. 
+2020-09-21 19:08:13,471 INFO  deploy per_job with appId: application_1600681563761_0011, jobId: 6d138dc6aeb662147abe6e8262f4421d 
+2020-09-21 19:55:39,754 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 19:55:39,754 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 19:55:39,755 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 19:55:39,755 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 19:55:39,755 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 19:55:39,755 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 19:55:39,755 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 19:55:39,755 INFO  Loading configuration property: fs.hdfs.hadoopconf, /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 19:55:39,755 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 19:55:40,582 INFO  ------------program params------------------------- 
+2020-09-21 19:55:40,582 INFO  -mode 
+2020-09-21 19:55:40,582 INFO  yarnPer 
+2020-09-21 19:55:40,582 INFO  -name 
+2020-09-21 19:55:40,582 INFO  testKfkToMysql 
+2020-09-21 19:55:40,582 INFO  -sql 
+2020-09-21 19:55:40,582 INFO  ++CREATE+TABLE+kfkTable%28%0A++++id+int%2C%0A++++name+varchar%0A+%29WITH%28%0A++++type+%3D%27kafka09%27%2C%0A++++bootstrapServers+%3D%27localhost%3A9092%27%2C%0A++++zookeeperQuorum+%3D%27localhost%3A2181%2Fkafka%27%2C%0A++++offsetReset+%3D%27latest%27%2C%0A++++topic+%3D%27test%27%2C%0A++++groupId%3D%27test%27%2C%0A++++parallelism+%3D%271%27%2C%0A++++timezone%3D%27Asia%2FShanghai%27%2C%0A++++sourcedatatype+%3D%27dt_nest%27%0A+%29%3B%0A%0A%0A++CREATE+TABLE+MyResult%28%0A++++id+int%2C%0A++++name+VARCHAR%0A+%29WITH%28%0A++++type+%3D%27mysql%27%2C%0A++++url+%3D%27jdbc%3Amysql%3A%2F%2Flocalhost%3A3306%2Ftest%27%2C%0A++++userName+%3D%27root%27%2C%0A++++password+%3D%2712345678%27%2C%0A++++tableName+%3D%27student1%27%2C%0A++++parallelism+%3D%271%27%0A+%29%3B%0A%0Ainsert%0Ainto%0A++++MyResult%0A++++select%0A++++++++id%2C%0A++++++++name%0A++++from%0A++++++++kfkTable%3B 
+2020-09-21 19:55:40,582 INFO  -flinkconf 
+2020-09-21 19:55:40,582 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/conf 
+2020-09-21 19:55:40,582 INFO  -yarnconf 
+2020-09-21 19:55:40,582 INFO  /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 19:55:40,582 INFO  -localSqlPluginPath 
+2020-09-21 19:55:40,582 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 19:55:40,582 INFO  -remoteSqlPluginPath 
+2020-09-21 19:55:40,582 INFO  /Users/jingdongqi/Github/flinkStreamSQL/sqlplugins 
+2020-09-21 19:55:40,582 INFO  -confProp 
+2020-09-21 19:55:40,582 INFO  {"time.characteristic":"eventTime","logLevel":"info"} 
+2020-09-21 19:55:40,582 INFO  -flinkJarPath 
+2020-09-21 19:55:40,583 INFO  /Users/jingdongqi/opt/module/flink-1.10.0/lib 
+2020-09-21 19:55:40,583 INFO  -queue 
+2020-09-21 19:55:40,583 INFO  default 
+2020-09-21 19:55:40,583 INFO  -yarnSessionConf 
+2020-09-21 19:55:40,583 INFO  {} 
+2020-09-21 19:55:40,583 INFO  -pluginLoadMode 
+2020-09-21 19:55:40,583 INFO  CLASSPATH 
+2020-09-21 19:55:40,583 INFO  ------------------------------------------- 
+2020-09-21 19:55:40,867 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/kafka09source create ClassLoad successful... 
+2020-09-21 19:55:40,878 INFO  pluginJarPath:/Users/jingdongqi/Github/flinkStreamSQL/sqlplugins/mysqlsink create ClassLoad successful... 
+2020-09-21 19:55:40,927 INFO  class org.apache.flink.types.Row does not contain a getter for field fields 
+2020-09-21 19:55:40,928 INFO  class org.apache.flink.types.Row does not contain a setter for field fields 
+2020-09-21 19:55:40,928 INFO  Class class org.apache.flink.types.Row cannot be used as a POJO type because not all fields are valid POJO fields, and must be processed as GenericType. Please read the Flink documentation on "Data Types & Serialization" for details of the effect on performance. 
+2020-09-21 19:55:42,353 INFO  registe table kfkTable success. 
+2020-09-21 19:55:42,373 INFO  exe-sql:
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 19:55:42,374 INFO  ----------exec sql without dimension join----------- 
+2020-09-21 19:55:42,374 INFO  ----------real sql exec is--------------------------
+INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 19:55:42,718 INFO  exec sql: INSERT INTO `MyResult`
+(SELECT `id`, `name`
+FROM `kfkTable`) 
+2020-09-21 19:55:42,870 INFO  Loading configuration property: jobmanager.rpc.address, localhost 
+2020-09-21 19:55:42,870 INFO  Loading configuration property: jobmanager.rpc.port, 6123 
+2020-09-21 19:55:42,870 INFO  Loading configuration property: jobmanager.heap.size, 1024m 
+2020-09-21 19:55:42,870 INFO  Loading configuration property: taskmanager.memory.process.size, 2048m 
+2020-09-21 19:55:42,870 INFO  Loading configuration property: taskmanager.memory.jvm-overhead.min, 150m 
+2020-09-21 19:55:42,870 INFO  Loading configuration property: taskmanager.memory.jvm-metaspace.size, 256m 
+2020-09-21 19:55:42,870 INFO  Loading configuration property: taskmanager.numberOfTaskSlots, 1 
+2020-09-21 19:55:42,871 INFO  Loading configuration property: fs.hdfs.hadoopconf, /Users/jingdongqi/opt/module/hadoop-3.1.3/etc/hadoop 
+2020-09-21 19:55:42,871 INFO  Loading configuration property: jobmanager.execution.failover-strategy, region 
+2020-09-21 19:55:42,872 WARN  The configuration directory ('/Users/jingdongqi/opt/module/flink-1.10.0/conf') already contains a LOG4J config file.If you want to use logback, then please delete or rename the log configuration file. 
+2020-09-21 19:55:43,223 WARN  Unable to load native-hadoop library for your platform... using builtin-java classes where applicable 
+2020-09-21 19:55:43,337 INFO  Hadoop user set to jingdongqi (auth:SIMPLE) 
+2020-09-21 19:55:43,343 INFO  Jaas file will be created as /var/folders/xc/48rrrdlx7p7422qrt9b8gs6h0000gn/T/jaas-2885994937156473220.conf. 
+2020-09-21 19:55:43,438 INFO  Connecting to ResourceManager at localhost/127.0.0.1:8032 
+2020-09-21 19:55:43,578 INFO  No path for the flink jar passed. Using the location of class org.apache.flink.yarn.YarnClusterDescriptor to locate the jar 
+2020-09-21 19:55:43,781 INFO  Cluster specification: ClusterSpecification{masterMemoryMB=1024, taskManagerMemoryMB=2048, slotsPerTaskManager=1} 
+2020-09-21 19:55:43,785 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 19:55:44,188 WARN  The plugins directory [plugins] does not exist. 
+2020-09-21 19:55:45,205 INFO  Submitting application master application_1600681563761_0012 
+2020-09-21 19:55:45,235 INFO  Submitted application application_1600681563761_0012 
+2020-09-21 19:55:45,235 INFO  Waiting for the cluster to be allocated 
+2020-09-21 19:55:45,238 INFO  Deploying cluster, current state ACCEPTED 
+2020-09-21 19:55:50,300 INFO  YARN application has been deployed successfully. 
+2020-09-21 19:55:50,302 INFO  The Flink YARN session cluster has been started in detached mode. In order to stop Flink gracefully, use the following command:
+$ echo "stop" | ./bin/yarn-session.sh -id application_1600681563761_0012
+If this should not be possible, then you can also kill Flink via YARN's web interface or via:
+$ yarn application -kill application_1600681563761_0012
+Note that killing Flink might not clean up all job artifacts and temporary files. 
+2020-09-21 19:55:50,302 INFO  Found Web Interface localhost:60691 of application 'application_1600681563761_0012'. 
+2020-09-21 19:55:50,403 INFO  deploy per_job with appId: application_1600681563761_0012, jobId: ce334f56d267724f297e38ef306cfbc6 
