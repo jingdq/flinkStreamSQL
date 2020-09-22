@@ -1,0 +1,127 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.dtstack.flink:sql.core:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.dtstack.flink:flink.sql:1.0-SNAPSHOT, /Users/jingdongqi/Github/flinkStreamSQL/pom.xml, line 44, column 21
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-jar-plugin is missing. @ line 183, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ---------------------< com.dtstack.flink:sql.core >---------------------
+[INFO] Building core 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ sql.core ---
+[INFO] com.dtstack.flink:sql.core:jar:1.0-SNAPSHOT
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- joda-time:joda-time:jar:2.5:compile
+[INFO] +- org.apache.flink:flink-core:jar:1.8.1:compile
+[INFO] |  +- org.apache.flink:flink-annotations:jar:1.8.1:compile
+[INFO] |  +- org.apache.flink:flink-metrics-core:jar:1.8.1:compile
+[INFO] |  +- org.apache.flink:flink-shaded-asm:jar:5.0.4-6.0:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.3.2:compile
+[INFO] |  +- com.esotericsoftware.kryo:kryo:jar:2.24.0:compile
+[INFO] |  |  +- com.esotericsoftware.minlog:minlog:jar:1.2:compile
+[INFO] |  |  \- org.objenesis:objenesis:jar:2.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  +- org.apache.commons:commons-compress:jar:1.18:compile
+[INFO] |  +- org.apache.flink:flink-shaded-guava:jar:18.0-6.0:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.15:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  \- org.apache.flink:force-shading:jar:1.8.1:compile
+[INFO] +- org.apache.flink:flink-streaming-java_2.11:jar:1.8.1:compile
+[INFO] |  +- org.apache.flink:flink-runtime_2.11:jar:1.8.1:compile
+[INFO] |  |  +- org.apache.flink:flink-queryable-state-client-java_2.11:jar:1.8.1:compile
+[INFO] |  |  +- org.apache.flink:flink-hadoop-fs:jar:1.8.1:compile
+[INFO] |  |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  |  +- org.apache.flink:flink-shaded-netty:jar:4.1.32.Final-6.0:compile
+[INFO] |  |  +- org.apache.flink:flink-shaded-jackson:jar:2.7.9-6.0:compile
+[INFO] |  |  +- commons-cli:commons-cli:jar:1.3.1:compile
+[INFO] |  |  +- org.javassist:javassist:jar:3.19.0-GA:compile
+[INFO] |  |  +- com.typesafe.akka:akka-actor_2.11:jar:2.4.20:compile
+[INFO] |  |  |  +- com.typesafe:config:jar:1.3.0:compile
+[INFO] |  |  |  \- org.scala-lang.modules:scala-java8-compat_2.11:jar:0.7.0:compile
+[INFO] |  |  +- com.typesafe.akka:akka-stream_2.11:jar:2.4.20:compile
+[INFO] |  |  |  +- org.reactivestreams:reactive-streams:jar:1.0.0:compile
+[INFO] |  |  |  \- com.typesafe:ssl-config-core_2.11:jar:0.2.1:compile
+[INFO] |  |  +- com.typesafe.akka:akka-protobuf_2.11:jar:2.4.20:compile
+[INFO] |  |  +- com.typesafe.akka:akka-slf4j_2.11:jar:2.4.20:compile
+[INFO] |  |  +- org.clapper:grizzled-slf4j_2.11:jar:1.3.2:compile
+[INFO] |  |  +- com.github.scopt:scopt_2.11:jar:3.5.0:compile
+[INFO] |  |  +- org.xerial.snappy:snappy-java:jar:1.1.4:compile
+[INFO] |  |  \- com.twitter:chill_2.11:jar:0.7.6:compile
+[INFO] |  |     \- com.twitter:chill-java:jar:0.7.6:compile
+[INFO] |  +- org.apache.flink:flink-clients_2.11:jar:1.8.1:compile
+[INFO] |  |  \- org.apache.flink:flink-optimizer_2.11:jar:1.8.1:compile
+[INFO] |  \- org.apache.commons:commons-math3:jar:3.5:compile
+[INFO] +- org.apache.flink:flink-streaming-scala_2.11:jar:1.8.1:compile
+[INFO] |  +- org.scala-lang:scala-reflect:jar:2.11.12:compile
+[INFO] |  +- org.scala-lang:scala-library:jar:2.11.12:compile
+[INFO] |  \- org.scala-lang:scala-compiler:jar:2.11.12:compile
+[INFO] |     +- org.scala-lang.modules:scala-xml_2.11:jar:1.0.5:compile
+[INFO] |     \- org.scala-lang.modules:scala-parser-combinators_2.11:jar:1.0.4:compile
+[INFO] +- org.apache.flink:flink-table-planner_2.11:jar:1.8.1:compile
+[INFO] |  \- org.apache.flink:flink-table-api-java-bridge_2.11:jar:1.8.1:compile
+[INFO] |     \- org.apache.flink:flink-table-api-java:jar:1.8.1:compile
+[INFO] +- org.apache.flink:flink-table-common:jar:1.8.1:compile
+[INFO] +- org.apache.calcite:calcite-server:jar:1.16.0:compile
+[INFO] |  +- org.apache.calcite.avatica:avatica-core:jar:1.11.0:compile
+[INFO] |  |  +- org.apache.calcite.avatica:avatica-metrics:jar:1.11.0:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-core:jar:2.9.4:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.4:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.9.4:compile
+[INFO] |  |  +- com.google.protobuf:protobuf-java:jar:3.3.0:compile
+[INFO] |  |  +- org.apache.httpcomponents:httpclient:jar:4.5.2:compile
+[INFO] |  |  \- org.apache.httpcomponents:httpcore:jar:4.4.4:compile
+[INFO] |  +- org.apache.calcite:calcite-core:jar:1.16.0:compile
+[INFO] |  |  +- commons-dbcp:commons-dbcp:jar:1.4:compile
+[INFO] |  |  |  \- commons-pool:commons-pool:jar:1.5.4:compile
+[INFO] |  |  +- com.esri.geometry:esri-geometry-api:jar:2.0.0:compile
+[INFO] |  |  +- com.yahoo.datasketches:sketches-core:jar:0.9.0:compile
+[INFO] |  |  |  \- com.yahoo.datasketches:memory:jar:0.9.0:compile
+[INFO] |  |  +- net.hydromatic:aggdesigner-algorithm:jar:6.0:compile
+[INFO] |  |  +- org.codehaus.janino:janino:jar:2.7.6:compile
+[INFO] |  |  \- org.codehaus.janino:commons-compiler:jar:2.7.6:compile
+[INFO] |  +- org.apache.calcite:calcite-linq4j:jar:1.16.0:compile
+[INFO] |  \- com.google.guava:guava:jar:19.0:compile
+[INFO] +- org.apache.flink:flink-cep-scala_2.11:jar:1.8.1:compile
+[INFO] |  \- org.apache.flink:flink-cep_2.11:jar:1.8.1:compile
+[INFO] +- org.apache.flink:flink-scala_2.11:jar:1.8.1:compile
+[INFO] |  +- org.apache.flink:flink-java:jar:1.8.1:compile
+[INFO] |  \- org.apache.flink:flink-shaded-asm-6:jar:6.2.1-6.0:compile
+[INFO] \- org.apache.flink:flink-yarn_2.11:jar:1.8.1:compile
+[INFO]    +- org.apache.flink:flink-shaded-hadoop2:jar:2.4.1-1.8.1:compile
+[INFO]    |  +- org.apache.avro:avro:jar:1.8.2:compile
+[INFO]    |  |  +- org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile
+[INFO]    |  |  \- org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13:compile
+[INFO]    |  +- com.thoughtworks.paranamer:paranamer:jar:2.7:compile
+[INFO]    |  +- org.tukaani:xz:jar:1.5:compile
+[INFO]    |  +- xmlenc:xmlenc:jar:0.52:compile
+[INFO]    |  +- commons-codec:commons-codec:jar:1.10:compile
+[INFO]    |  +- commons-net:commons-net:jar:3.1:compile
+[INFO]    |  +- javax.servlet:servlet-api:jar:2.5:compile
+[INFO]    |  +- commons-el:commons-el:jar:1.0:runtime
+[INFO]    |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO]    |  +- com.jamesmurty.utils:java-xmlbuilder:jar:0.4:compile
+[INFO]    |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO]    |  +- commons-configuration:commons-configuration:jar:1.7:compile
+[INFO]    |  +- commons-digester:commons-digester:jar:1.8.1:compile
+[INFO]    |  +- com.jcraft:jsch:jar:0.1.42:compile
+[INFO]    |  +- org.apache.zookeeper:zookeeper:jar:3.4.10:compile
+[INFO]    |  +- commons-beanutils:commons-beanutils:jar:1.9.3:compile
+[INFO]    |  +- commons-daemon:commons-daemon:jar:1.0.13:compile
+[INFO]    |  +- com.sun.jersey:jersey-client:jar:1.9:compile
+[INFO]    |  +- javax.xml.bind:jaxb-api:jar:2.2.2:compile
+[INFO]    |  +- javax.xml.stream:stax-api:jar:1.0-2:compile
+[INFO]    |  \- javax.activation:activation:jar:1.1:compile
+[INFO]    \- com.typesafe.akka:akka-camel_2.11:jar:2.4.20:compile
+[INFO]       \- org.apache.camel:camel-core:jar:2.17.7:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.997 s
+[INFO] Finished at: 2020-09-22T16:46:28+08:00
+[INFO] ------------------------------------------------------------------------

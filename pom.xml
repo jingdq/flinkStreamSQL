@@ -21,15 +21,16 @@
         <module>redis5</module>
         <module>launcher</module>
         <module>rdb</module>
-        <module>sqlserver</module>
-        <module>oracle</module>
-        <module>cassandra</module>
-        <module>kudu</module>
-        <module>postgresql</module>
+<!--        <module>sqlserver</module>-->
+<!--        <module>oracle</module>-->
+<!--        <module>cassandra</module>-->
+<!--        <module>kudu</module>-->
+<!--        <module>postgresql</module>-->
         <!--<module>kafka08</module>-->
         <module>serversocket</module>
         <module>console</module>
-        <module>clickhouse</module>
+<!--        <module>clickhouse</module>-->
+
     </modules>
 
 

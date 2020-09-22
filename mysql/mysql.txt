@@ -1,0 +1,60 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.dtstack.flink:sql.sink.mysql:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.dtstack.flink:flink.sql:1.0-SNAPSHOT, /Users/jingdongqi/Github/flinkStreamSQL/pom.xml, line 44, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.dtstack.flink:sql.side.mysql.core:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.dtstack.flink:flink.sql:1.0-SNAPSHOT, /Users/jingdongqi/Github/flinkStreamSQL/pom.xml, line 44, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.dtstack.flink:sql.side.async.mysql:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.dtstack.flink:flink.sql:1.0-SNAPSHOT, /Users/jingdongqi/Github/flinkStreamSQL/pom.xml, line 44, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.dtstack.flink:sql.side.all.mysql:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.dtstack.flink:flink.sql:1.0-SNAPSHOT, /Users/jingdongqi/Github/flinkStreamSQL/pom.xml, line 44, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.dtstack.flink:sql.side.mysql:pom:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.dtstack.flink:flink.sql:1.0-SNAPSHOT, /Users/jingdongqi/Github/flinkStreamSQL/pom.xml, line 44, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.dtstack.flink:sql.mysql:pom:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.dtstack.flink:flink.sql:1.0-SNAPSHOT, /Users/jingdongqi/Github/flinkStreamSQL/pom.xml, line 44, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] sql.mysql                                                          [pom]
+[INFO] mysql-sink                                                         [jar]
+[INFO] mysql-side                                                         [pom]
+[INFO] mysql-side-core                                                    [jar]
+[INFO] mysql-async-side                                                   [jar]
+[INFO] mysql-all-side                                                     [jar]
+[INFO] 
+[INFO] --------------------< com.dtstack.flink:sql.mysql >---------------------
+[INFO] Building sql.mysql 1.0-SNAPSHOT                                    [1/6]
+[INFO] --------------------------------[ pom ]---------------------------------
+[WARNING] The POM for com.dtstack.flink:sql.core:jar:1.0-SNAPSHOT is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for sql.mysql 1.0-SNAPSHOT:
+[INFO] 
+[INFO] sql.mysql .......................................... FAILURE [  0.032 s]
+[INFO] mysql-sink ......................................... SKIPPED
+[INFO] mysql-side ......................................... SKIPPED
+[INFO] mysql-side-core .................................... SKIPPED
+[INFO] mysql-async-side ................................... SKIPPED
+[INFO] mysql-all-side ..................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.244 s
+[INFO] Finished at: 2020-09-22T16:48:21+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project sql.mysql: Could not resolve dependencies for project com.dtstack.flink:sql.mysql:pom:1.0-SNAPSHOT: Could not find artifact com.dtstack.flink:sql.core:jar:1.0-SNAPSHOT -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException

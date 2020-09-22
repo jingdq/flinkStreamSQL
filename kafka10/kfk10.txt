@@ -1,0 +1,45 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.dtstack.flink:sql.source.kafka10:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.dtstack.flink:flink.sql:1.0-SNAPSHOT, /Users/jingdongqi/Github/flinkStreamSQL/pom.xml, line 44, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.dtstack.flink:sql.sink.kafka10:jar:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.dtstack.flink:flink.sql:1.0-SNAPSHOT, /Users/jingdongqi/Github/flinkStreamSQL/pom.xml, line 44, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.dtstack.flink:sql.kafka10:pom:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ com.dtstack.flink:flink.sql:1.0-SNAPSHOT, /Users/jingdongqi/Github/flinkStreamSQL/pom.xml, line 44, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] sql.kafka10                                                        [pom]
+[INFO] kafka10-source                                                     [jar]
+[INFO] kafka10-sink                                                       [jar]
+[INFO] 
+[INFO] -------------------< com.dtstack.flink:sql.kafka10 >--------------------
+[INFO] Building sql.kafka10 1.0-SNAPSHOT                                  [1/3]
+[INFO] --------------------------------[ pom ]---------------------------------
+[WARNING] The POM for com.dtstack.flink:sql.core:jar:1.0-SNAPSHOT is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for sql.kafka10 1.0-SNAPSHOT:
+[INFO] 
+[INFO] sql.kafka10 ........................................ FAILURE [  0.063 s]
+[INFO] kafka10-source ..................................... SKIPPED
+[INFO] kafka10-sink ....................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.261 s
+[INFO] Finished at: 2020-09-22T16:47:53+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project sql.kafka10: Could not resolve dependencies for project com.dtstack.flink:sql.kafka10:pom:1.0-SNAPSHOT: Could not find artifact com.dtstack.flink:sql.core:jar:1.0-SNAPSHOT -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
